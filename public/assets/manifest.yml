@@ -9,10 +9,14 @@ veg.png: veg-0491e10cf96ef3ac17173c5161f9ad22.png
 veg/index.png: veg-0491e10cf96ef3ac17173c5161f9ad22.png
 welcome.jpg: welcome-d9834cedad37bfadf329ab057237e10f.jpg
 welcome/index.jpg: welcome-d9834cedad37bfadf329ab057237e10f.jpg
+active_admin.js: active_admin-76080568551d43c2a08a19b4975fa21a.js
+active_admin/index.js: active_admin-76080568551d43c2a08a19b4975fa21a.js
 application.js: application-a3b1f31c5b30c3174e7ee6dfe80d4d17.js
 application/index.js: application-a3b1f31c5b30c3174e7ee6dfe80d4d17.js
 application.css: application-06057ae2fe18fc52b6aec21fb5487776.css
 application/index.css: application-06057ae2fe18fc52b6aec21fb5487776.css
+active_admin.css: active_admin-260046bf859577275018362aecae1f62.css
+active_admin/index.css: active_admin-260046bf859577275018362aecae1f62.css
 bootstrap/glyphicons-halflings-regular.eot: bootstrap/glyphicons-halflings-regular-c636642c40bcbf8fadcdc2f0ca5ab4a0.eot
 bootstrap/glyphicons-halflings-regular/index.eot: bootstrap/glyphicons-halflings-regular-c636642c40bcbf8fadcdc2f0ca5ab4a0.eot
 bootstrap/glyphicons-halflings-regular.svg: bootstrap/glyphicons-halflings-regular-cfb32aeba6f38bcfad3f57a6cf347a9b.svg
