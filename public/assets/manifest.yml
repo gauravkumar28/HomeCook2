@@ -57,6 +57,8 @@ active_admin/application.js: active_admin/application-6ed4b815070547ef708578c4d8
 active_admin/application/index.js: active_admin/application-6ed4b815070547ef708578c4d8b0b1ef.js
 active_admin/pages/application.js: active_admin/pages/application-2692eadc8d12dfb455063b6b593bd635.js
 active_admin/pages/application/index.js: active_admin/pages/application-2692eadc8d12dfb455063b6b593bd635.js
+active_admin/print.css: active_admin/print-629b804c46f8e53152a27d41c7465a9e.css
+active_admin/print/index.css: active_admin/print-629b804c46f8e53152a27d41c7465a9e.css
 jquery-ui/ui-bg_flat_0_aaaaaa_40x100.png: jquery-ui/ui-bg_flat_0_aaaaaa_40x100-6b0858a07f9b26b1fbf609593cf427f4.png
 jquery-ui/ui-bg_flat_0_aaaaaa_40x100/index.png: jquery-ui/ui-bg_flat_0_aaaaaa_40x100-6b0858a07f9b26b1fbf609593cf427f4.png
 jquery-ui/ui-bg_flat_75_ffffff_40x100.png: jquery-ui/ui-bg_flat_75_ffffff_40x100-d18e8affeba7ab0c6d4dcdd2477c53bb.png
