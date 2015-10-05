@@ -9,27 +9,49 @@
   </div>
   <div class='col-xs-6 has-above-50'>
     <div class='col-xs-12 header has-above'>
-      <h3>Delivery Address</h3>
-      <%= form_for(@order) do |f| %>  
-        <div class="form-group">
-          <%= f.hidden_field :location_id, :value => @location_id %>
-          <%= f.label :Address1%><br />
-          <%= f.text_field :address1, required: true, autofocus: true, class: 'form-control' %>
-        </div>  
-        <div class="form-group">
-          <%= f.label :Address2%><br />
-          <%= f.text_field :address2, autofocus: true, required: true, class: 'form-control' %>
-        </div>  
-        <div class="form-group">
-          <%= f.label :Landmark %><br />
-          <%= f.text_field :landmark, autofocus: true, required: true, class: 'form-control' %>
-        </div> 
-         <div class="form-group">
-          <%= f.label :phone %><br />
-          <%= f.text_field :phone, autofocus: true, required: true, class: 'form-control' %>
-        </div>   
-        <%= f.submit "Place Order", :class => "btn btn-success btn-lg has-above block" %>
-       <% end %>
+
+    </div>
+    <h3>Delivery Address</h3>
+      <div>
+        <% if current_user && current_user.shipping_address.present? %>
+          <% address = current_user.shipping_address %>
+          <h4> Current Shipping Address </h4>
+          <%= address.addrss1 %></br>
+          <%= address.address2 %></br>
+          <%= address.landmark %></br>
+          <%= address.phone %></br> 
+          <%#= check_box_tag 'address', "address", true, :onchange => 'Filter.applyCheckbox();return false;' %>
+          <%#= label_tag "Use Existing Shipping Address", nil, class: 'has-left' %>
+          <%= form_for( @order, :url =>{controller: 'orders', action: 'create', :shipping_address => true}) do |f| %>  
+
+            <%= f.submit "Deliver to this Address", :class => "btn btn-success btn-lg has-above block" %>
+            <%#= f.hidden_field_tag :use_address_exist, value: true %>
+          <% end %>
+        <% end %>
+      </div>
+      <div>
+        <h3> Add New Address </h3>
+        <%= form_for(@order) do |f| %>  
+          <div class="form-group">
+            <%= f.hidden_field :location_id, :value => @location_id %>
+            <%= f.label :Address1%><br />
+            <%= f.text_field :address1, required: true, autofocus: true, class: 'form-control' %>
+          </div>  
+          <div class="form-group">
+            <%= f.label :Address2%><br />
+            <%= f.text_field :address2, autofocus: true, required: true, class: 'form-control' %>
+          </div>  
+          <div class="form-group">
+            <%= f.label :Landmark %><br />
+            <%= f.text_field :landmark, autofocus: true, required: true, class: 'form-control' %>
+          </div> 
+           <div class="form-group">
+            <%= f.label :phone %><br />
+            <%= f.text_field :phone, autofocus: true, required: true, class: 'form-control' %>
+          </div>   
+          <%= f.submit "Place Order", :class => "btn btn-success btn-lg has-above block has-below" %>
+        <% end %>
+      </div>
     </div>
       <!-- <button class='btn btn-warning has-above'>Place Order</button> -->
   </div>

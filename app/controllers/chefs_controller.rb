@@ -8,7 +8,7 @@ class ChefsController < ApplicationController
    #  @locations = Location.within(5, :origin => origin).includes([chef: :menus]) 
     
     @location = Location.find_by_name(params[:location])
-    session[:location] = @location
+    session[:location_id] = @location.id
     params[:veg] ||= "true"
     params[:nonveg] ||= "true"
     params[:menu_type] ||="all"

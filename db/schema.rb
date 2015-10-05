@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20151005041039) do
+ActiveRecord::Schema.define(:version => 20151005155011) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "namespace"
@@ -140,6 +140,8 @@ ActiveRecord::Schema.define(:version => 20151005041039) do
     t.string   "zip"
     t.string   "phone"
     t.integer  "order_id"
+    t.integer  "user_id"
+    t.string   "landmark"
   end
 
   create_table "time_frames", :force => true do |t|
