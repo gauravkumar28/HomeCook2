@@ -65,7 +65,7 @@ class OrdersController < ApplicationController
   def apply_coupan
     @coupan = Coupan.find_by_code(params[:coupon_code])
     @discount = @coupan.discount if @coupan.discount_type == 'absolute'
-    @discount = (@cart.total - (@cart.total * 100 *  @coupan.discount)).to_i if @coupan.discount_type == 'percent'
+    @discount = ((@cart.total  *  @coupan.discount)/100).to_i if @coupan.discount_type == 'percent'
   end
 
   def login_required
