@@ -26,6 +26,7 @@ class OrdersController < ApplicationController
             shipping_address.user_id = current_user.id
             shipping_address.save!
           end
+          flash[:success] = "Order Placed Successfully"
           @cart.clear
           redirect_to chefs_path
     	  else
