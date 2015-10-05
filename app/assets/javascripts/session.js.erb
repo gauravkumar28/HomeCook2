@@ -1,0 +1,19 @@
+var Session = {
+  signin: function() {
+    $("#model").dialog({
+    modal: true,
+    draggable: false,
+    resizable: false,
+    position: ['center', 'top'],
+    show: 'blind',
+    hide: 'blind',
+    width: 400,
+    dialogClass: 'ui-dialog-osx',
+    buttons: {
+        "I've read and understand this": function() {
+            $(this).dialog("close");
+        }
+    }
+});
+  }
+}

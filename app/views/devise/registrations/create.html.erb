@@ -1,0 +1,18 @@
+<div class='col-xs-12'>
+<div class='col-xs-3'>
+</div>
+<div class='col-xs-6'>
+<div id="verify-pin has-above">
+<h3>Enter your PIN</h3>
+<%= form_tag verify_user_registration_path(@user), html: {class: 'horizontal-form'} do |f| %>
+  <%= hidden_field_tag 'hidden_phone_number', @user.phone %>
+  <div class="form-group">
+    <%= text_field_tag :pin %>
+  </div>
+  <%= submit_tag "Verify PIN", class: "btn btn-primary" %>
+  <% end %>
+</div>
+</div>
+<div class='col-xs-3'>
+</div>
+</div>

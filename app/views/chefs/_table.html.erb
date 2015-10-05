@@ -1,0 +1,19 @@
+<table class="table">
+<tr>
+	  <th class="larger">Menu</th>
+	  <th class="larger">Quantity</th>
+	  <th class="larger">Price</th>
+    </tr>
+  <% @cart.cart_items.each do |cart_item| %>
+    <tr>
+      <td class="large"><%= cart_item.item.name %></td>
+      <td class="large"><%= cart_item.quantity %></td>
+      <td class="large"><%= cart_item.quantity * cart_item.price %></td>
+    </tr>
+  <% end %>
+  <tr>
+  <td class="large">Sub Total</td>
+  <td class="large"></td>
+  <td class="large"><%= @cart.total %></td>
+  </tr>
+</table>

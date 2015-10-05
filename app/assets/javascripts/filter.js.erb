@@ -1,0 +1,73 @@
+var Filter = {
+	applyCheckbox: function( checkbox_id){
+      var veg = true;
+      var nonveg = true;
+      var menu_type = 'all';
+	  if( !(jQuery('#veg').is(':checked'))) {
+	  	veg = false;
+      }
+      if(!(jQuery('#non-veg').is(':checked'))) {
+	  	nonveg = false;
+      }
+      if(jQuery('#all').hasClass('active')) {
+	  	menu_type = 'all';
+      }
+      if(jQuery('#paratha').hasClass('active')) {
+	  	menu_type = 'paratha';
+      }
+      if(jQuery('#gravy').hasClass('active')) {
+	  	menu_type = 'gravy';
+      }
+      if(jQuery('#rice').hasClass('active')) {
+	  	menu_type = 'rice';
+      }
+      if(jQuery('#drink').hasClass('active')) {
+	  	menu_type = 'drink';
+      }
+     $.ajax({
+        type: 'get',
+        url: '/chefs',
+        data: {'veg': veg, 'nonveg': nonveg, 'menu_type': menu_type},
+        success: function(data){
+        }
+    });
+	},
+
+	applyType: function(type, id){
+	  var veg = true;
+      var nonveg = true;
+      var menu_type = 'all';
+	  if( !(jQuery('#veg').is(':checked'))) {
+	  	veg = false;
+      }
+      if(!(jQuery('#non-veg').is(':checked'))) {
+	  	nonveg = false;
+      }
+      if(jQuery('#all').hasClass('active')) {
+	  	jQuery('#all').removeClass('active');
+      }
+      if(jQuery('#paratha').hasClass('active')) {
+	  	jQuery('#paratha').removeClass('active');
+      }
+      if(jQuery('#gravy').hasClass('active')) {
+	  	jQuery('#gravy').removeClass('active');
+      }
+      if(jQuery('#rice').hasClass('active')) {
+	  	jQuery('#rice').removeClass('active');
+      }
+      if(jQuery('#drink').addClass('active')) {
+	  	jQuery('#drink').removeClass('active');
+      }
+      jQuery(id).addClass('active');
+      menu_type  = type;
+		$.ajax({
+        type: 'get',
+        url: '/chefs',
+        data: {'veg': veg, 'nonveg': nonveg, 'menu_type': menu_type},
+        success: function(data){
+        }
+    });
+	}
+
+
+}

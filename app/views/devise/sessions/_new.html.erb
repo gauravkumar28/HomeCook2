@@ -1,0 +1,39 @@
+
+<div class='col-xs-12'>
+  <div class=''>
+    <div class='signin-header has-below text-center'>
+      <%= link_to 'SignIn', new_session_path(resource_name), remote: true, class: 'btn btn-md btn-warning header'%>
+      <%= link_to 'SignUp', new_registration_path(resource_name), remote: true, class: 'btn btn-md btn-warning header'%>
+    </div>
+    <hr/>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name, place_order: @place_order)) do |f| %>
+      <div class="form-group">
+        <%= f.label :email, class: 'large no-bottom' %><br />
+        <%= f.email_field :email, autofocus: true, required: true, class: 'form-control'%>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :password, class: 'large no-bottom' %><br />
+        <%= f.password_field :password, autocomplete: "off", required: true, class: 'form-control' %>
+      </div>
+
+      <% if devise_mapping.rememberable? -%>
+        <div class="form-group">
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me %>
+        </div>
+      <% end -%>
+        <%= f.submit "Sign In", class: 'btn btn-lr btn-primary large' %>
+    <% end %>
+    <div class="form-group">
+    <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+      <%= link_to "Forgot your password?", new_password_path(resource_name), class: 'has-above' %><br />
+    <% end %>
+    </div>
+    <hr/>
+   <div class="form-group text-center">
+    <%= link_to 'Sign in as Guest', '#', class: 'btn btn-md btn-primary'%>
+    </div>
+  </div>
+</div>
+

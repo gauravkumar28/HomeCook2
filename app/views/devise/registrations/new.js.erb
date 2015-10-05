@@ -1,0 +1,10 @@
+jQuery('#dialog').html('<%= escape_javascript render 'devise/registrations/new' %>')
+
+jQuery( document ).ready( function() {
+    jQuery( '#dialog' ).dialog( { height: 600,
+    width: 500,
+    modal: true,
+    resizable: true,
+    dialogClass: 'no-close success-dialog'} );
+  });
+jQuery( '#dialog' ).dialog( 'open' );

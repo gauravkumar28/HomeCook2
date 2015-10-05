@@ -1,0 +1,39 @@
+var Order = {
+	addTocart: function(menu_id){
+		// jcart = JSON.parse(cart)
+		// if( typeof jcart[menu] != 'undefined')
+		// {
+		// 	jcart[menu] = jcart[menu] + 1
+		// }
+		// else
+		// {
+		// 	jcart[menu] = 1
+		// }
+
+		$.ajax({
+        type: 'POST',
+        url: '/addcart',
+        data: {'menu_id': menu_id},
+        success: function(data){
+        	jQuery("#cart").html(data);
+        },
+        dataType: 'html'
+    });
+	},
+
+	subFromcart: function(menu_id){
+		$.ajax({
+        type: 'POST',
+        url: '/removecart',
+        data: {'menu_id': menu_id},
+        success: function(data){
+        	jQuery("#cart").html(data);
+        },
+        dataType: 'html'
+    });
+
+	},
+	signinAlert: function(){ 
+	  sweetAlert("Please Signin to Proceed");
+	}
+}

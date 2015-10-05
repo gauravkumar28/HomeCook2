@@ -1,0 +1,36 @@
+<div class='col-xs-12'>
+  <div class='col-xs-6 has-above-50'>
+    <div class='col-xs-12 header has-above'>
+      Order Summery
+      <div id = "summery">
+      <%= render partial: 'chefs/summary' %>
+      </div>
+    </div>
+  </div>
+  <div class='col-xs-6 has-above-50'>
+    <div class='col-xs-12 header has-above'>
+      <h3>Delivery Address</h3>
+      <%= form_for(@order) do |f| %>  
+        <div class="form-group">
+          <%= f.hidden_field :location_id, :value => @location_id %>
+          <%= f.label :Address1%><br />
+          <%= f.text_field :address1, required: true, autofocus: true, class: 'form-control' %>
+        </div>  
+        <div class="form-group">
+          <%= f.label :Address2%><br />
+          <%= f.text_field :address2, autofocus: true, required: true, class: 'form-control' %>
+        </div>  
+        <div class="form-group">
+          <%= f.label :Landmark %><br />
+          <%= f.text_field :landmark, autofocus: true, required: true, class: 'form-control' %>
+        </div> 
+         <div class="form-group">
+          <%= f.label :phone %><br />
+          <%= f.text_field :phone, autofocus: true, required: true, class: 'form-control' %>
+        </div>   
+        <%= f.submit "Place Order", :class => "btn btn-success btn-lg has-above block" %>
+       <% end %>
+    </div>
+      <!-- <button class='btn btn-warning has-above'>Place Order</button> -->
+  </div>
+</div>

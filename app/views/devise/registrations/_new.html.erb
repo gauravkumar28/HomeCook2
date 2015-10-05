@@ -1,0 +1,40 @@
+
+<div class='col-xs-12'>
+  <div class=''>
+    <div class='signin-header has-below text-center'>
+      <%= link_to 'SignIn', new_session_path(resource_name), remote: true, class: 'btn btn-md btn-warning header'%>
+      <%= link_to 'SignUp', new_registration_path(resource_name), remote: true, class: 'btn btn-md btn-warning header'%>
+    </div>
+    <hr/>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name) ) do |f| %>
+      <%= devise_error_messages! %>
+      <div class="form-group has-above">
+        <%= f.label :email%><br />
+        <%= f.email_field :email, autofocus: true, required: true, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :password%>
+        <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "off", required: true, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :password_confirmation %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "off", required: true, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :phone%><br />
+        <%= f.text_field :phone, autocomplete: "off", required: true, class: "form-control" %>
+      </div>
+
+      <%= f.submit "Sign up", :class => "btn btn-primary btn-lr btn-block large" %>
+      <div class='has-above'>
+        <%#= render "devise/shared/links" %>
+      </div>
+    <% end %>
+  </div>
+</div>
