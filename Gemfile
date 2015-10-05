@@ -43,7 +43,7 @@ group :development do
   gem 'debugger'
 end
 gem 'devise'
-gem 'devise-otp'
+#gem 'devise-otp'
 gem 'activeadmin'
 gem "meta_search", '>= 1.1.0.pre'
 gem 'rails3-jquery-autocomplete'

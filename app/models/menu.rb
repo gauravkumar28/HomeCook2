@@ -1,4 +1,4 @@
 class Menu < ActiveRecord::Base
-  attr_accessible :name, :price, :type, :category
-  belongs_to :chef
+  attr_accessible :name, :price, :category, :location_id, :menu_type
+  belongs_to :location
 end

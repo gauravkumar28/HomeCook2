@@ -8,7 +8,7 @@ class ChefsController < ApplicationController
    #  @locations = Location.within(5, :origin => origin).includes([chef: :menus]) 
     
     @location = Location.find_by_name(params[:location])
-    session[:location_id] = @location.id
+    session[:location_id] = @location.id if @location.present?
     params[:veg] ||= "true"
     params[:nonveg] ||= "true"
     params[:menu_type] ||="all"
@@ -18,7 +18,7 @@ class ChefsController < ApplicationController
             elsif params[:veg] == "true"
               Menu.where(category: 'veg') 
             elsif params[:nonveg] =="true"
-              Menu.where(category: 'non_veg') 
+              Menu.where(category: 'non-veg') 
             else 
               []
             end

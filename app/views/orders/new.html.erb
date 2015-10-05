@@ -15,7 +15,7 @@
       <div>
         <% if current_user && current_user.shipping_address.present? %>
           <% address = current_user.shipping_address %>
-          <h4> Current Shipping Address </h4>
+          <h4> Current Delivery Address </h4>
           <%= address.addrss1 %></br>
           <%= address.address2 %></br>
           <%= address.landmark %></br>

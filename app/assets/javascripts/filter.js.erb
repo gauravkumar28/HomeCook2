@@ -1,5 +1,5 @@
 var Filter = {
-	applyCheckbox: function( checkbox_id){
+	applyCheckbox: function( checkbox_id, location){
       var veg = true;
       var nonveg = true;
       var menu_type = 'all';
@@ -27,13 +27,13 @@ var Filter = {
      $.ajax({
         type: 'get',
         url: '/chefs',
-        data: {'veg': veg, 'nonveg': nonveg, 'menu_type': menu_type},
+        data: {'veg': veg, 'nonveg': nonveg, 'menu_type': menu_type, 'location': location },
         success: function(data){
         }
     });
 	},
 
-	applyType: function(type, id){
+	applyType: function(type, id, location){
 	  var veg = true;
       var nonveg = true;
       var menu_type = 'all';
@@ -63,7 +63,7 @@ var Filter = {
 		$.ajax({
         type: 'get',
         url: '/chefs',
-        data: {'veg': veg, 'nonveg': nonveg, 'menu_type': menu_type},
+        data: {'veg': veg, 'nonveg': nonveg, 'menu_type': menu_type, 'location': location},
         success: function(data){
         }
     });

@@ -6,6 +6,7 @@ class OrdersController < ApplicationController
       @order = Order.new(address1: address.addrss1, address2: address.address2, landmark: address.landmark, phone: address.phone, location_id: session[:location_id], user_id: current_user.id)
       if @order.save 
   	    flash[:success] = "Order Placed Successfully"
+        send_message
         @cart.clear
         redirect_to chefs_path
       else
@@ -33,6 +34,7 @@ class OrdersController < ApplicationController
         end
       else
         if @order.save 
+        send_message
         flash[:success] = "Order Placed Successfully"
         @cart.clear
         redirect_to chefs_path
@@ -48,6 +50,7 @@ class OrdersController < ApplicationController
   end
 
   def new
+    session.delete(:return_to)
     if @cart.total == 0
       flash[:notice] = "please select items"
       redirect_to :back and return
@@ -74,16 +77,15 @@ class OrdersController < ApplicationController
   end
 
   def send_message
-     # twilio_sid = "ACb144919d3af4655207b682f28d3882a9"
-    # twilio_token = "5994e565f9bf70f5f247f6177bdbfa93"
-    # twilio_phone_number = "2016764649"
+    twilio_sid = "ACb144919d3af4655207b682f28d3882a9"
+    twilio_token = "5994e565f9bf70f5f247f6177bdbfa93"
+    twilio_phone_number = "2016764649"
 
-    # @twilio_client = Twilio::REST::Client.new twilio_sid, twilio_token
-
-    # @twilio_client.account.sms.messages.create(
-    #   from: '+14196054656',
-    #   :to => "+919986895741",
-    #   :body => "This is an message. It gets sent to Tinkesh")
+    @twilio_client = Twilio::REST::Client.new twilio_sid, twilio_token
+    @twilio_client.account.sms.messages.create(
+      from: '+14196054656',
+      :to => "+91" + @order.phone.to_s,
+      :body => "Hi Your Order Placed")
 
 
    

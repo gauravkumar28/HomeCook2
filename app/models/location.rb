@@ -1,5 +1,7 @@
 class Location < ActiveRecord::Base
-  attr_accessible :name
+  attr_accessible :name, :street, :landmark, :city
   acts_as_mappable
-  belongs_to :chef
+  #belongs_to :chef
+  has_many :menus
+  has_many :orders
 end

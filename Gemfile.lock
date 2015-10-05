@@ -86,10 +86,6 @@ GEM
       responders
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
-    devise-otp (0.2.3)
-      devise (>= 3.1.0, < 4.0.0)
-      rails (>= 3.2.6, < 5)
-      rotp (>= 2.0.0)
     erubis (2.7.0)
     execjs (2.6.0)
     faker (1.5.0)
@@ -181,7 +177,6 @@ GEM
       json (~> 1.4)
     responders (1.1.2)
       railties (>= 3.2, < 4.2)
-    rotp (2.1.1)
     sass (3.4.18)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
@@ -221,7 +216,6 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   debugger
   devise
-  devise-otp
   faker
   geokit-rails
   jquery-rails

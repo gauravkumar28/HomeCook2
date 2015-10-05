@@ -47,7 +47,7 @@
 <!-- Modal -->
 <div class="container-fluid padding-none">
 <% flash.each do |key, value| %>
-  <div class="alert alert-<%= key %>"><%= value %></div>
+  <%= content_tag :div, value, class: "flash #{key}" %>
 <% end %>
   <%= yield %>
 </div>
