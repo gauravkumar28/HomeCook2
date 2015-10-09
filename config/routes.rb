@@ -64,7 +64,9 @@ HomeCook::Application.routes.draw do
   end
 
   resources :orders
-
+  
+  resources :home
+  
   get "/coupons" => "orders#apply_coupan"
   match '/contactus', :to => 'chefs#contactus'
   match '/aboutus', :to => 'chefs#aboutus'

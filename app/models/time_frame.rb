@@ -1,5 +1,4 @@
 class TimeFrame < ActiveRecord::Base
-  # attr_accessible :title, :body
-  belongs_to :order
-  belongs_to :chef
+  attr_accessible :time, :location_id
+  belongs_to :Location
 end

@@ -4,9 +4,6 @@ class ChefsController < ApplicationController
   end
 
   def index
-  	# origin = LocationName::LOCATION[params[:location]]
-   #  @locations = Location.within(5, :origin => origin).includes([chef: :menus]) 
-    
     @location = Location.find_by_name(params[:location])
     session[:location_id] = @location.id if @location.present?
     params[:veg] ||= "true"
@@ -31,6 +28,10 @@ class ChefsController < ApplicationController
 
   def show
     @chef = Chef.find(params[:id])
+    unless @chef
+      flash[:error] = 'Chef Not Found!!!'
+      redirect_to :back
+    end
   end
 
   def aboutus
@@ -43,21 +44,19 @@ class ChefsController < ApplicationController
   end
 
   def addcart
-  	menu_id = params[:menu_id]
-  	menu = Menu.find(menu_id)
-  	@cart.add(menu, menu.price)
+    menu_id = params[:menu_id]
+    menu = Menu.find(menu_id)
+    @cart.add(menu, menu.price)
     render :partial => 'table'
   end
 
   def removecart
-  	menu_id = params[:menu_id]
-  	menu = Menu.find(menu_id)
-  	@cart.remove(menu, 1)
-  	render :partial => 'table'
+    menu_id = params[:menu_id]
+    menu = Menu.find(menu_id)
+    @cart.remove(menu, 1)
+    render :partial => 'table'
   end
 
   def apply_coupon
-  #coupon_code = params[:coupon_code]
-
   end
 end

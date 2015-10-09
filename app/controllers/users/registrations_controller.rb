@@ -17,13 +17,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
       # code = rand(0000..9999).to_s.rjust(4, "0")
       # send_sms(@user.phone, code)
       sign_in @user
-      redirect_to session[:return_to] || root_path 
-    else
-      respond_to do |format|
-      format.js { render :js => "window.location = 'devise/registrations/new'" }
-
-      #format.js { render :js => "window.location.href = ('#{new_user_registration_path}');"}
-    end
+      flash[:notice] = 'Signned Up Successfully!'
+      render :js => "window.location = '#{session[:return_to]}'" and return
     end
   end
 

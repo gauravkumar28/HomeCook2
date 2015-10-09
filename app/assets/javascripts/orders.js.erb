@@ -1,15 +1,5 @@
 var Order = {
 	addTocart: function(menu_id){
-		// jcart = JSON.parse(cart)
-		// if( typeof jcart[menu] != 'undefined')
-		// {
-		// 	jcart[menu] = jcart[menu] + 1
-		// }
-		// else
-		// {
-		// 	jcart[menu] = 1
-		// }
-
 		$.ajax({
         type: 'POST',
         url: '/addcart',
@@ -35,5 +25,21 @@ var Order = {
 	},
 	signinAlert: function(){ 
 	  sweetAlert("Please Signin to Proceed");
+	},
+
+	showExisting: function(){
+      jQuery('#existing_address').toggle();
+      jQuery('#new_address').toggle();
+	},
+	validateForm: function(){
+	   jQuery("#new_order").validate({
+    debug: true,
+    rules: {
+    "order[address1]": {required: true},  //added this
+    "order[address2]": {required: true},
+    "order[landmark]": {required: true},
+    "order[phone]": {required: true}
+    }
+  });
 	}
 }

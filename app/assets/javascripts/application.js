@@ -11,6 +11,8 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
+//= require jquery.validate
+//= require jquery.validate.additional-methods
 //= require jquery_ujs
 //= require jquery-ui
 //= require bootstrap
