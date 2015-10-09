@@ -9,4 +9,5 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
   has_many :orders
   has_one :shipping_address
+  validates :email, :password, :phone, :name, :presence => true
 end
