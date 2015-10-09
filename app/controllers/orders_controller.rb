@@ -53,7 +53,7 @@ class OrdersController < ApplicationController
   def new
     session.delete(:return_to)
     if @cart.total == 0
-      flash[:notice] = "please select items"
+      flash[:notice] = "Your Cart is Empty. Add Items And Proceed"
       redirect_to :back and return
     end
     @order = Order.new
@@ -86,6 +86,7 @@ class OrdersController < ApplicationController
       @discount = @coupan.discount if @coupan.discount_type == 'absolute'
       @discount = ((@cart.total  *  @coupan.discount)/100).to_i if @coupan.discount_type == 'percent'
     else @coupan
+      @error = true
       flash[:notice] = 'Invalid Coupan'
     end
   end

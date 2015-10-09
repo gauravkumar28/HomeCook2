@@ -28,7 +28,7 @@
             <%= f.hidden_field :location_id, :value => session[:location_id] %>
             <%= f.select(:time, Location.find(session[:location_id]).time_frames.collect(&:time), {include_blank: false } ) %>
             <%= f.hidden_field :summery, :value => @cart.cart_items.collect(&:item).collect(&:name).join(", ") %>
-            <%= f.hidden_field :price, :value => @cart.total %>
+            <%= f.hidden_field :price, :value => @cart.total - @discount.to_i %>
             <%= f.submit "Deliver to this Address", :class => "btn btn-success btn-lg has-above block" %>
             <%#= f.hidden_field_tag :use_address_exist, value: true %>
           <% end %>
@@ -59,7 +59,7 @@
             <%= f.text_field :phone, autofocus: true, required: true, class: 'form-control' %>
           </div>   
           <%= f.hidden_field :summery, :value => @cart.cart_items.collect(&:item).collect(&:name).join(", ") %>
-            <%= f.hidden_field :price, :value => @cart.total %>
+            <%= f.hidden_field :price, :value => @cart.total - @discount.to_i %>
           <%= f.submit "Place Order", :class => "btn btn-success btn-lg has-above block has-below" %>
         <% end %>
       </div>

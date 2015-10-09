@@ -1,3 +1,7 @@
 jQuery('#summery').html("<%= escape_javascript(render(:partial => 'chefs/summary')) %>");
-jQuery("#notice").html("<%= flash[:notice] %>").show();
-<% flash.delete(:notice) %>
+<% if @error %>
+  jQuery("#notice").html("<%= flash[:notice] %>").show();
+	<% flash.delete(:notice) %>
+<% else %>
+  jQuery("#notice").hide();	
+<% end %>
