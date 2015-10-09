@@ -1,0 +1,66 @@
+<div class='col-xs-12 header has-above '>
+    </div>
+    <h3>Delivery Address</h3>
+    <% if current_user && current_user.shipping_address.present? %>
+      <%= check_box_tag 'Use Existing Address', "Use Existing Address", false, :onchange => 'Order.showExisting();return false;' %>
+      <%= label_tag "Use Existing Address", nil, class: 'header has-left' %>
+      <div id="existing_address" style="display:none;">
+        <% address = current_user.shipping_address %>
+        <h4> Current Delivery Address </h4>
+        <ul class='list-group'>
+          <li class='list-group-item'>
+            <%= address.addrss1 %>
+          </li>
+          <li class='list-group-item'>
+            <%= address.address2 %>
+          </li>
+          <li class='list-group-item'>
+            <%= address.landmark%>
+          </li>
+          <li class='list-group-item'>
+            <%= address.phone %>
+          </li>
+        </ul>
+        <%#= check_box_tag 'address', "address", true, :onchange => 'Filter.applyCheckbox();return false;' %>
+        <%#= label_tag "Use Existing Shipping Address", nil, class: 'has-left' %>
+        <%= form_for( @order, :url =>{controller: 'orders', action: 'create', :shipping_address => true}, :html => {id: "order_form"}) do |f| %>  
+          <%= f.hidden_field :location_id, :value => session[:location_id] %>
+          <%= f.select(:time, Location.find(session[:location_id]).time_frames.collect(&:time), {include_blank: false } ) %>
+          <%= f.hidden_field :summery, :value => @cart.cart_items.collect(&:item).collect(&:name).join(", ") %>
+          <%= f.hidden_field :price, :value => @cart.total - @discount.to_i %>
+          <%= f.hidden_field :status, :value => 'placed' %>
+          <%= f.submit "Deliver to this Address", :class => "btn btn-success btn-lg has-above block" %>
+          <%#= f.hidden_field_tag :use_address_exist, value: true %>
+        <% end %>
+      </div>
+    <% end %>
+    <div id="new_address">
+      <h3> Add New Address </h3>
+      <%= form_for(@order, :html => {id: "order_form"}) do |f| %>  
+        <div class="form-group">
+          <%= f.label :Time%> 
+          <%= f.select(:time, Location.find(session[:location_id]).time_frames.collect(&:time), {include_blank: false }) %>
+        </div>
+        <div class="form-group">
+          <%= f.hidden_field :location_id, :value => @location_id %>
+          <%= f.label :Address1%><br />
+          <%= f.text_field :address1, required: true, autofocus: true, class: 'form-control' %>
+        </div>  
+        <div class="form-group">
+          <%= f.label :Address2%><br />
+          <%= f.text_field :address2, autofocus: true, required: true, class: 'form-control' %>
+        </div>  
+        <div class="form-group">
+          <%= f.label :Landmark %><br />
+          <%= f.text_field :landmark, autofocus: true, required: true, class: 'form-control' %>
+        </div> 
+         <div class="form-group">
+          <%= f.label :phone %><br />
+          <%= f.text_field :phone, autofocus: true, required: true, class: 'form-control' %>
+        </div>   
+        <%= f.hidden_field :summery, :value => @cart.cart_items.collect(&:item).collect(&:name).join(", ") %>
+          <%= f.hidden_field :price, :value => @cart.total - @discount.to_i %>
+          <%= f.hidden_field :status, :value => 'placed' %>
+        <%= f.submit "Place Order", :class => "btn btn-success btn-lg has-above block has-below" %>
+      <% end %>
+    </div>
