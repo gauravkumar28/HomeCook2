@@ -1,5 +1,5 @@
 <%= render partial: 'chefs/table' %>
-<%= form_tag coupons_path, :method => 'get', remote: true, class: "navbar-form navbar-left" do %>
+<%= form_tag coupons_path, :method => 'get', class: "navbar-form navbar-left" do %>
   <div class="form-group">
     <%= text_field_tag 'coupon_code', nil, placeholder: 'Coupon Code', class: "form-control width-400" %>
   </div>

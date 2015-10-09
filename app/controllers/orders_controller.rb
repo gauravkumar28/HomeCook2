@@ -3,7 +3,7 @@ class OrdersController < ApplicationController
   def create
     if params[:shipping_address].present?
       address = current_user.shipping_address
-      @order = Order.new(address1: address.addrss1, address2: address.address2, landmark: address.landmark, phone: address.phone, location_id: session[:location_id], user_id: current_user.id, time: params[:order][:time], summery: params[:order][:summery], price: params[:order][:price])
+      @order = Order.new(address1: address.addrss1, address2: address.address2, landmark: address.landmark, phone: address.phone, location_id: session[:location_id], user_id: current_user.id, time: params[:order][:time], summery: params[:order][:summery], price: params[:order][:price], status: params[:order][:status])
       if @order.save 
   	    flash[:success] = "Order Placed Successfully"
         send_message
@@ -56,6 +56,7 @@ class OrdersController < ApplicationController
       flash[:notice] = "Your Cart is Empty. Add Items And Proceed"
       redirect_to :back and return
     end
+    @discount =  params[:discount]
     @order = Order.new
   end
   
@@ -67,8 +68,8 @@ class OrdersController < ApplicationController
   end
 
   def update
-    @order = Order.new(params[:order])
-    if @order.save
+    @order = Order.find(params[:id])
+    if @order.update_attributes(params[:order])
       redirect_to home_index_path({id: @order.user_id})
     else
       redirect_to :back
@@ -81,14 +82,14 @@ class OrdersController < ApplicationController
 
   def apply_coupan
     @coupan = Coupan.find_by_code(params[:coupon_code])
-
     if @coupan
-      @discount = @coupan.discount if @coupan.discount_type == 'absolute'
-      @discount = ((@cart.total  *  @coupan.discount)/100).to_i if @coupan.discount_type == 'percent'
+      discount = @coupan.discount if @coupan.discount_type == 'absolute'
+      discount = ((@cart.total  *  @coupan.discount)/100).to_i if @coupan.discount_type == 'percent'
     else @coupan
       @error = true
       flash[:notice] = 'Invalid Coupan'
     end
+    redirect_to new_order_path({:discount => discount})
   end
 
   def login_required
