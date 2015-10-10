@@ -47,14 +47,14 @@ class ChefsController < ApplicationController
     menu_id = params[:menu_id]
     menu = Menu.find(menu_id)
     @cart.add(menu, menu.price)
-    render :partial => 'table'
+    render :partial => 'table', locals:{show_button: true}
   end
 
   def removecart
     menu_id = params[:menu_id]
     menu = Menu.find(menu_id)
     @cart.remove(menu, 1)
-    render :partial => 'table'
+    render :partial => 'table', locals:{show_button: true}
   end
 
   def apply_coupon
