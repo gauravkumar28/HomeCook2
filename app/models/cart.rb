@@ -6,6 +6,6 @@ class Cart < ActiveRecord::Base
   end
 
   def shipping_cost
-    self.subtotal <= 50 ? 20 : 0
+    (self.subtotal < 50 and self.subtotal > 0) ? 20 : 0
   end
 end
