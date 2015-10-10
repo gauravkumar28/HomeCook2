@@ -9,10 +9,12 @@
       <td class="large"><%= cart_item.item.name %></td>
       <td class="large"><%= cart_item.quantity %></td>
       <td class="large"><%= cart_item.quantity * cart_item.price %></td>
-      <td>
-        <button class='glyphicon glyphicon-minus right btn js-btn-minus rmvBtn block has-left-5', onclick="Order.subFromcart('<%=cart_item.item.id%>');return false;"></button>
-        <button class='glyphicon glyphicon-plus btn js-btn-minus rmvBtn right block', onclick="Order.addTocart('<%=cart_item.item.id%>');return false;"> </button>
+      <% if locals[:edit] %>
+        <td>
+          <button class='glyphicon glyphicon-minus right btn js-btn-minus rmvBtn block has-left-5', onclick="Order.subFromcart('<%=cart_item.item.id%>');return false;"></button>
+          <button class='glyphicon glyphicon-plus btn js-btn-minus rmvBtn right block', onclick="Order.addTocart('<%=cart_item.item.id%>');return false;"> </button>
         </td>
+      <% end %>
     </tr>
   <% end %>
   <tr>

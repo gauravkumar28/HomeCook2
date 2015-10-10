@@ -23,7 +23,7 @@
     <div class='summary has-above-100'>
     <div class='header'><b>Your order</b></div>
       <div id="cart">
-        <%= render partial: 'table' %>
+        <%= render partial: 'table', :locals => {:edit => true} %>
       </div>
     </div>
     <div class="checkout">
