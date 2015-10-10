@@ -4,4 +4,8 @@ class Cart < ActiveRecord::Base
   def taxes
     0
   end
+
+  def shipping_cost
+    self.subtotal <= 50 ? 20 : 0
+  end
 end

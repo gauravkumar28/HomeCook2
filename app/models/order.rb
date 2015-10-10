@@ -8,4 +8,6 @@ class Order < ActiveRecord::Base
   end
   scope :placed, where(status: STATUS::PLACED)
   scope :cancelled, where(status: STATUS::CANCELLED)
+
+  DELIVERY_CHARGE = 20
 end
