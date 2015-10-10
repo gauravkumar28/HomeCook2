@@ -1,4 +1,4 @@
-<%= render partial: 'chefs/table' %>
+<%= render partial: 'chefs/table', locals:{edit: false} %>
 <%= form_tag coupons_path, :method => 'get', class: "navbar-form navbar-left" do %>
   <div class="form-group">
     <%= text_field_tag 'coupon_code', nil, placeholder: 'Coupon Code', class: "form-control width-400" %>
