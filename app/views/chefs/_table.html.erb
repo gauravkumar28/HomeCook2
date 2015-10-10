@@ -30,6 +30,6 @@
   <tr>
   <td class="large">Total</td>
   <td class="large"></td>
-  <td class="large"><%= @cart.total %></td>
+  <td class="large"><%= @cart.total- @discount.to_i %></td>
   </tr>
 </table>
