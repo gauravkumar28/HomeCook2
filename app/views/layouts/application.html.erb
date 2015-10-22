@@ -10,7 +10,7 @@
 <body>
 
 
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default" style="min-height: 100px;  background-color: #F5F2EB">
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -19,21 +19,22 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <%= link_to 'IndiaKaDabba', root_path, class: "navbar-brand" %>
+      <%= link_to image_tag("logo.jpg",:width=>'130px')+raw("<div class='logo-text'>Call us<br>9819537603</div>"), root_path, class: "navbar-brand" %>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
       </ul>
-      <ul class="nav navbar-nav navbar-right">
+      <ul class="nav navbar-nav navbar-right" style="
+    padding-top: 20px;">
         <% unless current_user %>
-          <li><%= link_to "Sign in | Sign up", new_user_session_path, remote: true, class: 'signin-signup' %></li>
+          <li><%= link_to "Sign in | Sign up", new_user_session_path, remote: true, class: 'signin-signup btn btn-danger' %></li>
           <li><%#= link_to "Sign up", new_user_registration_path, id: "sign_up", class: 'signin-signup' %></li>
         <% end %>
         <% if current_user %>
-          <li> <%= link_to "#{current_user.name}", home_index_path({id: current_user.id}) %></li>
-          <li> <%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+          <li> <%= link_to "#{current_user.name}", home_index_path({id: current_user.id}), class: "btn btn-danger" %></li>
+          <li> <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "btn btn-danger" %></li>
         <% end %>
       </ul>
     </div>
@@ -53,14 +54,20 @@
 <% end %>
   <%= yield %>
 </div>
-<div class='col-xs-12 footer'>
-	<div class="col-xs-offset-4">
+<div class='col-xs-12 footer' style="background-color: #D6222B;">
+	<div class="col-xs-6">
 	  <ul class="list-inline no-bottom has-above">
 	    <li class="has-left"><%= link_to "Contact Us", "/contactus", :class => "unlink large" %></li>
-	    <li class='has-left'><%= link_to "Terms and Conditions", "/termscondition", :class => "unlink large"%></li>
+	    <li class='has-left'><%= link_to "Feedback", "/feedback", :class => "unlink large"%></li>
 	    <li class='has-left'><%= link_to "About Us", "/aboutus", :class => "unlink large" %></li>
+       <li class='has-left'><%= link_to "Party Orders", "/partyorders", :class => "unlink large" %></li>
 	  </ul>
 	</div>
+  <div class="col-xs-6"> 
+  <ul class="list-inline" style="padding: 1%;">
+      <li class="pull-right"><%= link_to image_tag("fb.png",:width=>'50px')+"Visit our Facebook Page", "#", :class => "unlink large" %></li>
+    </ul>
+  </div>
 </div>
 </body>
 </html>
