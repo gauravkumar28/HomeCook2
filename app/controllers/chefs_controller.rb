@@ -59,4 +59,8 @@ class ChefsController < ApplicationController
 
   def apply_coupon
   end
+
+  def comingsoon
+    render :layout => false
+  end
 end

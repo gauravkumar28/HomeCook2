@@ -73,6 +73,7 @@ HomeCook::Application.routes.draw do
   match '/termscondition', :to => 'chefs#termscondition'
   match '/addcart', :to =>'chefs#addcart'
   match '/removecart', :to =>'chefs#removecart'
+  match '/comingsoon', :to => 'chefs#comingsoon'
 
   # See how all your routes lay out with "rake routes"
 
