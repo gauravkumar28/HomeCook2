@@ -70,3 +70,4 @@ gem 'acts_as_shopping_cart', :github => 'crowdint/acts_as_shopping_cart', :branc
 gem 'sweet-alert'
 gem 'jquery-validation-rails'
 gem 'tod'
+gem 'validates_phone_number', '~> 2.0', '>= 2.0.1'

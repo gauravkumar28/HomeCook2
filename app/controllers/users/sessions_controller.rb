@@ -11,7 +11,7 @@ before_filter :configure_sign_in_params, only: [:create]
   def create
     self.resource = warden.authenticate!(auth_options)
     if resource && resource.active_for_authentication?
-      set_flash_message(:notice, :signed_in) 
+      #set_flash_message(:notice, :signed_in) 
       sign_in(resource_name, resource)
       render :js => "window.location = '#{session[:return_to]}'" and return
     else

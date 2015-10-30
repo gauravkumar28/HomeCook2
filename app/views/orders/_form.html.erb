@@ -25,7 +25,10 @@
         <%#= label_tag "Use Existing Shipping Address", nil, class: 'has-left' %>
         <%= form_for( @order, :url =>{controller: 'orders', action: 'create', :shipping_address => true}, :html => {id: "order_form"}) do |f| %>  
           <%= f.hidden_field :location_id, :value => session[:location_id] %>
-          <%= f.select(:time, Location.find(session[:location_id]).get_available_slots, {include_blank: false } ) %>
+          <div class="form-group">
+            <%= f.label :Time%> 
+            <%= f.select(:time, Location.find(session[:location_id]).get_available_slots, {include_blank: false } ) %>
+          </div>
           <%= f.hidden_field :summery, :value => @cart.cart_items.collect(&:item).collect(&:name).join(", ") %>
           <%= f.hidden_field :price, :value => @cart.total - @discount.to_i %>
           <%= f.hidden_field :status, :value => 'placed' %>

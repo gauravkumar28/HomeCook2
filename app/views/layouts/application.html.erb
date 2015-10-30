@@ -58,9 +58,9 @@
 	<div class="col-xs-6">
 	  <ul class="list-inline no-bottom has-above">
 	    <li class="has-left"><%= link_to "Contact Us", "/contactus", :class => "unlink large" %></li>
-	    <li class='has-left'><%= link_to "Feedback", "/feedback", :class => "unlink large"%></li>
+	    <li class='has-left'><%= link_to "Feedback", new_feedback_path, remote: true, :class => "unlink large"%></li>
 	    <li class='has-left'><%= link_to "About Us", "/aboutus", :class => "unlink large" %></li>
-       <li class='has-left'><%= link_to "Party Orders", "/partyorders", :class => "unlink large" %></li>
+       <li class='has-left'><%= link_to "Party Orders", new_party_order_path, remote: true, :class => "unlink large" %></li>
 	  </ul>
 	</div>
   <div class="col-xs-6"> 

@@ -207,6 +207,7 @@ GEM
     uglifier (2.7.2)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    validates_phone_number (2.0.1)
     warden (1.2.3)
       rack (>= 1.0)
 
@@ -240,3 +241,4 @@ DEPENDENCIES
   tod
   twilio-ruby (~> 4.2.1)
   uglifier (>= 1.0.3)
+  validates_phone_number (~> 2.0, >= 2.0.1)

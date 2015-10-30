@@ -17,7 +17,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       # code = rand(0000..9999).to_s.rjust(4, "0")
       # send_sms(@user.phone, code)
       sign_in @user
-      flash[:notice] = 'Signned Up Successfully!'
+      #flash[:notice] = 'Signned Up Successfully!'
       render :js => "window.location = '#{session[:return_to]}'" and return
     end
   end

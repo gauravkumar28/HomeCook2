@@ -3,6 +3,7 @@ class ChefsController < ApplicationController
     render :json => ['location1', 'location2']
   end
 
+  respond_to :js, :html
   def index
     @location = Location.find_by_name(params[:location])
     session[:location_id] = @location.id if @location.present?

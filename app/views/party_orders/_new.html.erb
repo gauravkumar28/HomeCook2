@@ -1,0 +1,25 @@
+
+<div class='col-xs-12'>
+  <div class=''>
+    <%= form_for(@party_order, remote: true) do |f| %>
+      <% if @party_order.errors.any? %>
+        <ul>
+          <% @party_order.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      <% end %>
+      <div class="form-group">
+        <%= f.label :name, class: 'large no-bottom' %><br />
+        <%= f.text_field :name, autofocus: true, required: true, class: 'form-control'%>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :contact_detail, class: 'large no-bottom' %><br />
+        <%= f.text_field :contact_detail, autocomplete: "off", required: true, class: 'form-control' %>
+      </div>
+      <%= f.submit "Place", class: 'btn btn-lr btn-primary large' %>
+    <% end %>
+  </div>
+</div>
+
