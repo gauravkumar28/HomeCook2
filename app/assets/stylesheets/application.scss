@@ -17,12 +17,14 @@
 @import "bootstrap";
 
 .background_image {
-  background: image-url('welcome.jpg');
+  background: image-url('homepage_background.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   margin-left: 0px !important;
   margin-right: 0px !important;
-  height: 560px;
+  height: 520px;
+  background-position: 0 -175px;
+  padding-top: 10%;
 }
 
 .padding-none{
@@ -31,7 +33,7 @@
 }
 
 .navbar-default{
-	background-color: #1C0A3C;
+	background-color: #0C0802;
 	margin-bottom: 0px;
 	border: 0px !important;
 	border-radius: 0 !important;
@@ -48,8 +50,8 @@
 	text-decoration: none !important;
 }
 
-.has-above-300{
-	margin-top: 300px;
+.has-above-210{
+	margin-top: 210px;
 }
 
 .form-control{
@@ -234,10 +236,29 @@ background-color: #dc2829;
 
 
 .footer{
-	background-color: #363535;
+	background-color: #0C0802;
 	height: 40px;
 }
 
 .ui-widget textarea .ui-widget button{
 	font-size: 20px;
 }
+
+.logo-text{
+	background-color: #D6222B;
+	padding: 10px;
+	font-size: 0.4em;
+	position: relative;
+    float: right;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.navbar-brand{
+	padding-top: 0px;
+}
+
+.btn-danger{
+	background-color: #D6222B;
+}
+
