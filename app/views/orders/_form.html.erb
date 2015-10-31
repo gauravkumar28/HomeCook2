@@ -24,6 +24,13 @@
         <%#= check_box_tag 'address', "address", true, :onchange => 'Filter.applyCheckbox();return false;' %>
         <%#= label_tag "Use Existing Shipping Address", nil, class: 'has-left' %>
         <%= form_for( @order, :url =>{controller: 'orders', action: 'create', :shipping_address => true}, :html => {id: "order_form"}) do |f| %>  
+          <% if @order.errors.any? %>
+            <ul>
+              <% @order.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+            </ul>
+          <% end %>
           <%= f.hidden_field :location_id, :value => session[:location_id] %>
           <div class="form-group">
             <%= f.label :Time%> 
@@ -40,6 +47,13 @@
     <div id="new_address">
       <h3> Add New Address </h3>
       <%= form_for(@order, :html => {id: "order_form"}) do |f| %>  
+        <% if @order.errors.any? %>
+          <ul>
+            <% @order.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        <% end %>
         <div class="form-group">
           <%= f.label :Time%> 
           <%= f.select(:time, Location.find(session[:location_id]).get_available_slots, {include_blank: false }) %>
