@@ -33,8 +33,8 @@
           <li><%#= link_to "Sign up", new_user_registration_path, id: "sign_up", class: 'signin-signup' %></li>
         <% end %>
         <% if current_user %>
-          <li> <%= link_to "#{current_user.name}", home_index_path({id: current_user.id}), class: "btn btn-danger" %></li>
-          <li> <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "btn btn-danger" %></li>
+          <li> <%= link_to "#{current_user.name}", home_index_path({id: current_user.id}), class: "signin-signup btn btn-danger" %></li>
+          <li> <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "signin-signup btn btn-danger" %></li>
         <% end %>
       </ul>
     </div>
