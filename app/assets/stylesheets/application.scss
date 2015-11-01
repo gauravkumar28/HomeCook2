@@ -17,12 +17,12 @@
 @import "bootstrap";
 
 .background_image {
-  background: image-url('homepage_background.jpg');
+  background: image-url('background.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   margin-left: 0px !important;
   margin-right: 0px !important;
-  height: 520px;
+  height: 540px;
   background-position: 0 -175px;
   padding-top: 10%;
 }
@@ -72,13 +72,21 @@
 .header{
 	font-size: 20px;
 	text-decoration: none !important;
-	margin-top: 20px !important;
+	//margin-top: 20px !important;
 }
 .signin-signup
 {
   font-size: 20px;
 	font-weight: 700;
 	color: white !important;
+	text-decoration: none !important;
+}
+
+.signin-signup:hover
+{
+  font-size: 20px;
+	font-weight: 700;
+	color: green !important;
 	text-decoration: none !important;
 }
 
@@ -142,8 +150,8 @@
 
 .ui-widget-content.success-dialog {
     background: #F9F9F9;
-    border: 1px solid #90d93f;
-    color: #222222;
+    border: 1px solid;
+    //color: green;
 }
 
 .ui-dialog.success-dialog {
@@ -155,7 +163,7 @@
 }
 
 .ui-dialog.success-dialog .ui-dialog-content {
-    background: none repeat scroll 0 0 transparent;
+    background: none repeat scroll 0 0 transparent !important;
     border: 0 none;
     overflow: auto;
     position: relative;
@@ -165,20 +173,26 @@
 
 .ui-dialog.success-dialog .ui-widget-header {
     border: 0;
-    color: #fff;
+    //color: #fff;
     font-weight: normal;
-    background: none;
+    background: none !important;
 }
 
 .ui-dialog.success-dialog .ui-dialog-titlebar {
     padding: 0.1em .5em;
     position: relative;
     font-size: 1em;
-    background: none;
+    background: none !important;
 }
 
+.ui-dialog .ui-dialog-titlebar-close{
+	width: 20px !important;
+  height: 20px !important;
+}
+
+
 .ui-dialog-titlebar-close{
-  background: image-url('close.png');
+  background: image-url('close.jpg');
 }
 .left-side{
 	float:left;
@@ -204,7 +218,7 @@
 }
 
 .active{
-	background-color: #dc2829;
+	
 }
 
 .table th, .table td { 
@@ -222,10 +236,13 @@
  	font-size: 25px;
  }
 
- a.list-group-item:hover, a.list-group-item:focus {
+a.list-group-item.active, a.list-group-item.active:hover, a.list-group-item.active:focus{
+  background-color: #D6222B;
+}
+
+a.list-group-item:hover, a.list-group-item:focus {
 text-decoration: none;
-/* background-color: #f5f5f5; */
-background-color: #dc2829;
+background-color: #810808;
 }
 
 .special .list-group-item:first-child {

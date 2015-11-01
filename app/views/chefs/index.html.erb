@@ -1,8 +1,8 @@
-<div class='col-xs-12'>
+<div class='col-xs-12' style="height:540px; overflow: scroll;">
   <div class='col-xs-1 zero-mobile-size'>
   </div>
   <div class='col-xs-2 thirty-five-mobile-width'>
-    <div class='filter has-above-100'>
+    <div class='filter has-above-50'>
       <%= check_box_tag 'veg', "veg", true, :onchange => 'Filter.applyCheckbox();return false;' %>
       <%= label_tag "veg only", nil, class: 'header has-left' %></br>
       <%= check_box_tag 'non-veg', "nonveg", true, :onchange => 'Filter.applyCheckbox();return false;' %>
@@ -16,11 +16,11 @@
       </div>
     </div>
   </div>
-  <div class='col-xs-6 has-above-100'>
+  <div class='col-xs-6 has-above-50'>
     <%= render partial: 'menu' %>
   </div>
   <div class='col-xs-3'>
-    <div class='summary has-above-100'>
+    <div class='summary has-above-50'>
     <div class='header'><b>Your order</b></div>
       <div id="cart">
         <%= render partial: 'table', locals:{show_button: true} %>
@@ -28,9 +28,9 @@
     </div>
     <div class="checkout">
       <% if current_user %>
-        <%= link_to 'Checkout', {:controller => "orders", :action => "new", :location_id => "location"}, class: 'btn btn-md btn-warning header right'%>
+        <%= link_to 'Checkout', {:controller => "orders", :action => "new", :location_id => "location"}, class: 'btn btn-md btn-success header right'%>
       <% else %>
-      <button class='btn btn-md btn-warning header right' onclick="Order.signinAlert();return false;">Checkout</button>
+      <button class='btn btn-md btn-success header right' onclick="Order.signinAlert();return false;">Checkout</button>
         <%#= link_to "Checkout", '#', :onclick => "Order.signinAlert();return false;", class: 'btn btn-md btn-success header right'%>
       <% end %>
     </div>

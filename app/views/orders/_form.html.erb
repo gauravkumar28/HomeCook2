@@ -3,7 +3,7 @@
     <h3>Delivery Address</h3>
      
     <div id="new_address">
-      <h3> Add New Address </h3>
+      <!-- <h3> Add New Address </h3> -->
       <%= form_for(@order, :html => {id: "order_form"}) do |f| %>  
         <% if @order.errors.any? %>
           <ul>
@@ -37,6 +37,6 @@
         <%= f.hidden_field :summery, :value => @order.generate_summery(@cart) %>
           <%= f.hidden_field :price, :value => @cart.total - @discount.to_i %>
           <%= f.hidden_field :status, :value => 'placed' %>
-        <%= f.submit "Place Order", :class => "btn btn-success btn-lg has-above block has-below" %>
+        <%= f.submit "Place Order", :class => "btn btn-success btn-lg has-above has-below" %>
       <% end %>
     </div>

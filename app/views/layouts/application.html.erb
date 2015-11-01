@@ -7,8 +7,8 @@
   <%#= javascript_include_tag "autocomplete-rails.js" %>
   <%= csrf_meta_tags %>
 </head>
-<body style="overflow: hidden; background: #D6222B">
-
+<!-- <body> style="overflow: hidden; background: #D6222B"> -->
+<body>
 
 <nav class="navbar navbar-default" style="min-height: 100px;  background-color: #F5F2EB; min-height: 90px;">
   <div class="container-fluid">
@@ -19,7 +19,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <%= link_to image_tag("logo.jpg",:width=>'130px')+raw("<div class='logo-text'>Call us<br>9819537603</div>"), "tel:+919819537603", class: "navbar-brand" %>
+      <%= link_to image_tag("logo.jpg",:width=>'130px')+raw("<div class='logo-text'>Call us<br>9819537603</div>"), root_path, class: "navbar-brand" %>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -34,7 +34,7 @@
         <% end %>
         <% if current_user %>
           <li> <%= link_to "#{current_user.name}", home_index_path({id: current_user.id}), class: "signin-signup btn btn-danger" %></li>
-          <li> <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "signin-signup btn btn-danger" %></li>
+          <li class="has-left"> <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "signin-signup btn btn-danger" %></li>
         <% end %>
       </ul>
     </div>
@@ -52,28 +52,7 @@
     <%= message %>
   </div>
 <% end %>
-  <%= yield %>
-</div>
-<footer class="footer" style="background: #D6222B">
-<div class="container" style="background: #D6222B">
-<div class="row" style="background: #D6222B">
-<div class='col-xs-12' style="background-color: #D6222B;">
-	<div class="col-xs-6">
-	  <ul class="list-inline no-bottom has-above">
-	    <li class="has-left"><%= link_to "Contact Us", "/contactus", :class => "unlink large" %></li>
-	    <li class='has-left'><%= link_to "Feedback", new_feedback_path, remote: true, :class => "unlink large"%></li>
-	    <li class='has-left'><%= link_to "About Us", "/aboutus", :class => "unlink large" %></li>
-       <li class='has-left'><%= link_to "Party Orders", new_party_order_path, remote: true, :class => "unlink large" %></li>
-	  </ul>
-	</div>
-  <div class="col-xs-6"> 
-  <ul class="list-inline" style="padding: 1%;">
-      <li class="pull-right"><%= link_to image_tag("fb.png",:width=>'50px'), "#", :class => "unlink large" %></li>
-    </ul>
-  </div>
-</div>
-</div>
-</div>
-</footer>
+<%= yield %>
+<%= render partial: 'layouts/footer' %>
 </body>
 </html>

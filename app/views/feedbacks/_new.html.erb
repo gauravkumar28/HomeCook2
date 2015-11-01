@@ -19,9 +19,9 @@
       </div>
       <div class="form-group">
         <%= f.label :description, class: 'large no-bottom' %><br />
-        <%= f.text_area :description, autocomplete: "off", required: true, class: 'form-control' %>
+        <%= f.text_area :description, autocomplete: "off", required: true, class: 'form-control', cols: 20, rows: 10 %>
       </div>
-      <%= f.submit "Post", class: 'btn btn-lr btn-primary large' %>
+      <%= f.submit "Post", class: 'btn btn-primary btn-lr btn-block large' %>
     <% end %>
   </div>
 </div>
