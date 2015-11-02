@@ -19,12 +19,12 @@
         </div>
         <div class="form-group">
           <%= f.hidden_field :location_id, :value => @location_id %>
-          <%= f.label :Address1%><br />
-          <%= f.text_field :address1, required: true, autofocus: true, class: 'form-control' %>
+          <%= f.label :Address%><br />
+          <%= f.text_field :address1, required: true, autofocus: true, class: 'form-control', rows: 2, cols: 10 %>
         </div>  
         <div class="form-group">
-          <%= f.label :Address2%><br />
-          <%= f.text_field :address2, autofocus: true, required: true, class: 'form-control' %>
+          <%= f.label :Address%><br />
+          <%= f.text_field :address2, autofocus: true, required: true, class: 'form-control', rows: 2, cols: 10 %>
         </div>  
         <div class="form-group">
           <%= f.label :Landmark %><br />
@@ -38,6 +38,7 @@
           <%= f.hidden_field :price, :value => @cart.total - @discount.to_i %>
           <%= f.hidden_field :status, :value => 'placed' %>
           <%= f.hidden_field :instruction, :value => @order.instruction %>
+          *We only accept Cash on delivery</br>
         <%= f.submit "Place Order", :class => "btn btn-success btn-lg has-above has-below" %>
       <% end %>
     </div>
