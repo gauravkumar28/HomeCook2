@@ -25,4 +25,16 @@ class Menu < ActiveRecord::Base
   validates :menu_type, :presence => true, inclusion: { in: Type.all }
   validates :category, :presence => true, inclusion: { in: Category.all }
 
+  def self.display_order
+    ['paratha', 'rice', 'drink']
+  end
+
+  def self.get_description
+    {:paratha => ['Paratha', 'we serve 2 parathas with pudina chutney and raita'],
+    :rice => ['Rice', 'served with raita'],
+    :drink => ['Drink',''],
+    :gravy => ['Gravy','served with raita']
+  }
+  end
+
 end

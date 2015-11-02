@@ -37,6 +37,7 @@
         <%= f.hidden_field :summery, :value => @order.generate_summery(@cart) %>
           <%= f.hidden_field :price, :value => @cart.total - @discount.to_i %>
           <%= f.hidden_field :status, :value => 'placed' %>
+          <%= f.hidden_field :instruction, :value => @order.instruction %>
         <%= f.submit "Place Order", :class => "btn btn-success btn-lg has-above has-below" %>
       <% end %>
     </div>

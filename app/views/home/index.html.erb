@@ -28,6 +28,7 @@
           <th class="larger">Price</th>
           <th class="larger">Time</th>
           <th class="larger">Status</th>
+          <th class='large'>Cooking Instruction</th>
           <!-- <th class="larger">Edit</th>
           <th class="larger">Cancel</th> -->
         </tr>
@@ -38,6 +39,7 @@
           <td class="large"><%= order.price%></td>
           <td class="large"><%= order.time%></td>
           <td class="large"><%= order.status%></td>
+          <td class='large'> <%= order.instruction %></td>
          <!--  <td class="large"><%= link_to 'edit', edit_order_path(order) %></td>
           <td class="large"><%= link_to 'Cancel', order_path(order), method: :delete%></td> -->
         </tr>

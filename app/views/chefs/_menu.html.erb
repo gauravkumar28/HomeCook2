@@ -1,13 +1,24 @@
-<table class="table" id='menu'>
-      <% @menus.each do |menu| %>
-      <tr>
-        <td> <%= menu.category == 'veg' ? image_tag('veg.png', :size => "30x30") : image_tag('nonveg.png', :size => "30x30")%></td>
-        <td class='larger'> <%= menu.name %></td>
-        <td class='larger'> <%= menu.price %></td>
-        <td>
-          <button class='glyphicon glyphicon-minus right js-btn-minus rmvBtn block has-left-5', onclick="Order.subFromcart('<%=menu.id%>');return false;"></button>
-          <button class='glyphicon glyphicon-plus js-btn-minus rmvBtn right block', onclick="Order.addTocart('<%=menu.id%>');return false;"> </button>
-        </td>
-      </tr>
-      <% end %>
-    </table>
+<div id='menu'>
+  <% menus_hash = @menus.group_by(&:menu_type) %>
+  <% Menu.display_order.each do | menu_type| %>
+    <% menus = menus_hash[menu_type] %>
+    <% unless menus.nil? || menus.size.zero? %>
+      <div>
+        <span class="header"><b><%= Menu.get_description[menu_type.to_sym][0] %></b></span><span class='has-left footertext'><%= Menu.get_description[menu_type.to_sym][1] %></span>
+      </div>
+      <table class="table">
+        <% menus.each do |menu| %>
+          <tr>
+            <td> <%= menu.category == 'veg' ? image_tag('veg.png', :size => "30x30") : image_tag('nonveg.png', :size => "30x30")%></td>
+            <td class='larger'> <%= menu.name %></td>
+            <td class='larger'> <%= menu.price %></td>
+            <td>
+              <button class='glyphicon glyphicon-minus right js-btn-minus rmvBtn block has-left-5', onclick="Order.subFromcart('<%=menu.id%>');return false;"></button>
+              <button class='glyphicon glyphicon-plus js-btn-minus rmvBtn right block', onclick="Order.addTocart('<%=menu.id%>');return false;"> </button>
+            </td>
+          </tr>
+        <% end %>
+      </table>
+    <% end %>
+  <% end %>
+</div>

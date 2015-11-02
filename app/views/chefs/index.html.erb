@@ -21,17 +21,26 @@
   </div>
   <div class='col-xs-3'>
     <div class='summary has-above-50'>
+    <div class='notice fade in'>
+      Free delivery over 100 Rs
+    </div>
     <div class='header'><b>Your order</b></div>
       <div id="cart">
         <%= render partial: 'table', locals:{show_button: true} %>
       </div>
     </div>
-    <div class="checkout">
+    <div class="checkout ">
+    <%= form_tag(new_order_path, :method=>'get', :multipart => true) do %>
+      <%= label_tag 'Cooking Instruction' %>
+      <%= text_area_tag 'instruction', nil, class: 'form-control', :cols => 10, :rows => 5 %>
       <% if current_user %>
-        <%= link_to 'Checkout', {:controller => "orders", :action => "new", :location_id => "location"}, class: 'btn btn-md btn-success header right'%>
+        <%= submit_tag 'Checkout', class: 'btn btn-md btn-success header has-above'%>
       <% else %>
-      <button class='btn btn-md btn-success header right' onclick="Order.signinAlert();return false;">Checkout</button>
+      <!-- <//button class='btn btn-md btn-success header right' onclick="Order.signinAlert();return false;">Checkout</button> -->
         <%#= link_to "Checkout", '#', :onclick => "Order.signinAlert();return false;", class: 'btn btn-md btn-success header right'%>
+
+        <%= submit_tag 'Checkout', :onclick => "Order.signinAlert();return false;", class: 'has-above btn btn-md btn-success header' %>
+      <% end %>
       <% end %>
     </div>
   </div>

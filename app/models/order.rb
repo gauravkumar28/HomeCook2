@@ -1,5 +1,5 @@
 class Order < ActiveRecord::Base
-  attr_accessible :address1, :address2, :phone, :landmark, :location_id, :user_id, :status, :time, :summery, :price
+  attr_accessible :address1, :address2, :phone, :landmark, :location_id, :user_id, :status, :time, :summery, :price, :created_at, :instruction
   belongs_to :user
   belongs_to :location
 
