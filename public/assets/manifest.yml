@@ -1,4 +1,6 @@
 ---
+background.jpg: background-c00448447aa6384a53842b164082f9ae.jpg
+background/index.jpg: background-c00448447aa6384a53842b164082f9ae.jpg
 close.png: close-43524f6557498be5f8b38081846d25d3.png
 close/index.png: close-43524f6557498be5f8b38081846d25d3.png
 coming.jpg: coming-3dcc2e5ae9d48323ba91e75d76e4e70d.jpg
@@ -17,10 +19,10 @@ veg.png: veg-0491e10cf96ef3ac17173c5161f9ad22.png
 veg/index.png: veg-0491e10cf96ef3ac17173c5161f9ad22.png
 active_admin.js: active_admin-76080568551d43c2a08a19b4975fa21a.js
 active_admin/index.js: active_admin-76080568551d43c2a08a19b4975fa21a.js
-application.js: application-224e217d87da7fca75a8da93420e9642.js
-application/index.js: application-224e217d87da7fca75a8da93420e9642.js
-application.css: application-89559b89bff05be5c98cdb64d7426986.css
-application/index.css: application-89559b89bff05be5c98cdb64d7426986.css
+application.js: application-36125f3e248f0f7aa81065628b832e34.js
+application/index.js: application-36125f3e248f0f7aa81065628b832e34.js
+application.css: application-fab434e3497cfaaf12112682b7928c30.css
+application/index.css: application-fab434e3497cfaaf12112682b7928c30.css
 active_admin.css: active_admin-260046bf859577275018362aecae1f62.css
 active_admin/index.css: active_admin-260046bf859577275018362aecae1f62.css
 bootstrap/glyphicons-halflings-regular.eot: bootstrap/glyphicons-halflings-regular-c636642c40bcbf8fadcdc2f0ca5ab4a0.eot

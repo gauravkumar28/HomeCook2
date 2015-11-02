@@ -8,10 +8,10 @@ class OrdersController < ApplicationController
   	    flash[:success] = "Order Placed Successfully"
         send_message
         @cart.clear
-        redirect_to chefs_path
+        redirect_to home_index_path({id: current_user.id})
       else
         flash[:error] = "Order Not Placed Try Again"
-        redirect_to :back
+        render :action => "new"
       end
     else
       @order = Order.new(params[:order])
@@ -28,21 +28,21 @@ class OrdersController < ApplicationController
           end
           flash[:success] = "Order Placed Successfully"
           @cart.clear
-          redirect_to chefs_path
+          redirect_to home_index_path({id: current_user.id})
     	  else
     		  flash[:error] = "Order Not Placed Try Again"
-    		  redirect_to :back
+    		  render :action => 'new'
         end
       else
         if @order.save 
-        send_message
-        flash[:success] = "Order Placed Successfully"
-        @cart.clear
-        redirect_to chefs_path
-      else
-        flash[:error] = "Order Not Placed Try Again"
-        redirect_to :back
-      end
+          send_message
+          flash[:success] = "Order Placed Successfully"
+          @cart.clear
+          redirect_to home_index_path({id: current_user.id})
+        else
+          flash[:error] = "Order Not Placed Try Again"
+          render :action => 'new'
+        end
       end
   	end 
   end
@@ -85,6 +85,7 @@ class OrdersController < ApplicationController
     if @coupan
       discount = @coupan.discount if @coupan.discount_type == 'absolute'
       discount = ((@cart.total  *  @coupan.discount)/100).to_i if @coupan.discount_type == 'percent'
+      @coupan.applied += 1
     else @coupan
       @error = true
       flash[:notice] = 'Invalid Coupan'
@@ -109,7 +110,12 @@ class OrdersController < ApplicationController
       @twilio_client.account.sms.messages.create(
         from: '+14196054656',
         :to => "+91" + @order.phone.to_s,
-        :body => "Hi Your Order Placed")
+        :body => "Hi Your Ordered #{@order.summery} at #{@order.time}")
+      @twilio_client = Twilio::REST::Client.new twilio_sid, twilio_token
+      # @twilio_client.account.sms.messages.create(
+      #   from: '+14196054656',
+      #   :to => "+91" + Order.ADMIN_CONTACT_NUMBER.to_s,
+      #   :body => "Hi new order #{@order.summery} at #{@order.time}")
     rescue => e
       flash[:error] = "Something went wrong Try Again!"
       redirect_to :back

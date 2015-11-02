@@ -9,5 +9,7 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
   has_many :orders
   has_one :shipping_address
+  has_many :coupans
   validates :email, :password, :phone, :name, :presence => true
+  validates :phone, :phone_number => {:ten_digits => true, :format => /\d{10}/, :message => "Phone Number Should be 10 Digit Long"}
 end

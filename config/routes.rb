@@ -75,6 +75,9 @@ HomeCook::Application.routes.draw do
   match '/removecart', :to =>'chefs#removecart'
   match '/comingsoon', :to => 'chefs#comingsoon'
 
+  resources :feedbacks
+  resources :party_orders
+
   # See how all your routes lay out with "rake routes"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.

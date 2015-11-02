@@ -3,4 +3,5 @@ class Coupan < ActiveRecord::Base
   attr_accessible :code, :discount_type, :discount, :exppires_at
 
   validates :code, :discount_type, :discount, :exppires_at, :presence => true
+  belongs_to :user
 end
