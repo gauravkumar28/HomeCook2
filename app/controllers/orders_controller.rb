@@ -16,6 +16,7 @@ class OrdersController < ApplicationController
       end
     else
       @order = Order.new(params[:order])
+      @order.created_at = Time.now.in_time_zone('Mumbai')
       @order.location_id = session[:location_id]
       if current_user
           @order.user_id = current_user.id
