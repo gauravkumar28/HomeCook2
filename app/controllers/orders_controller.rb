@@ -4,6 +4,7 @@ class OrdersController < ApplicationController
     if params[:shipping_address].present?
       address = current_user.shipping_address
       @order = Order.new(address1: address.addrss1, address2: address.address2, landmark: address.landmark, phone: address.phone, location_id: session[:location_id], user_id: current_user.id, time: params[:order][:time], summery: params[:order][:summery], price: params[:order][:price], status: params[:order][:status])
+      @order.created_at = Time.now.in_time_zone('Mumbai')
       if @order.save 
   	    flash[:success] = "Order Placed Successfully"
         send_message
