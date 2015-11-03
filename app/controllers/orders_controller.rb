@@ -11,7 +11,7 @@ class OrdersController < ApplicationController
         @cart.clear
         redirect_to home_index_path({id: current_user.id})
       else
-        flash[:error] = "Order Not Placed Try Again"
+        #flash[:error] = "Order Not Placed Try Again"
         render :action => "new"
       end
     else
@@ -33,7 +33,7 @@ class OrdersController < ApplicationController
           @cart.clear
           redirect_to home_index_path({id: current_user.id})
     	  else
-    		  flash[:error] = "Order Not Placed Try Again"
+    		  #flash[:error] = "Order Not Placed Try Again"
     		  render :action => 'new'
         end
       else
@@ -44,7 +44,7 @@ class OrdersController < ApplicationController
           @cart.clear
           redirect_to home_index_path({id: current_user.id})
         else
-          flash[:error] = "Order Not Placed Try Again"
+          #flash[:error] = "Order Not Placed Try Again"
           render :action => 'new'
         end
       end

@@ -7,6 +7,6 @@ class Cart < ActiveRecord::Base
   end
 
   def shipping_cost
-    (self.subtotal <= MINIMUM_ORDER_FOR_FREE_SHIPPING and self.subtotal > 0) ? 20 : 0
+    (self.subtotal < MINIMUM_ORDER_FOR_FREE_SHIPPING and self.subtotal > 0) ? 20 : 0
   end
 end
