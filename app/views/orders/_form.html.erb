@@ -5,18 +5,18 @@
     <div id="new_address">
       <!-- <h3> Add New Address </h3> -->
       <%= form_for(@order, :html => {id: "order_form"}) do |f| %> 
-        <div class="alert alert-danger"> 
-          <% if @order.errors.any? %>
+        <% if @order.errors.any? %>  
+          <div class="alert alert-danger"> 
             <ul>
               <% @order.errors.full_messages.each do |msg| %>
                 <li><%= msg %></li>
               <% end %>
             </ul>
-          <% end %>
-        </div>
+          </div>
+        <% end %>
         <% @order.landmark = Location.find(session[:location_id]).name %>
         <div class="form-group">
-          *we serve from only 8.00 PM to 12.00 AM<br\>
+          <p>*we serve from only 8.00 PM to 12.00 AM </p>
           <%= f.label :Time%> 
           <%= f.select(:time, Location.find(session[:location_id]).get_available_slots, {include_blank: false }) %>
         </div>
