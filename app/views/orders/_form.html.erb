@@ -16,7 +16,7 @@
         <% end %>
         <% @order.landmark = Location.find(session[:location_id]).name %>
         <div class="form-group">
-          <p>*we serve from only 8.00 PM to 12.00 AM </p>
+          <p>*we only serve from 8.00 PM to 12.00 AM </p>
           <%= f.label :Time%> 
           <%= f.select(:time, Location.find(session[:location_id]).get_available_slots, {include_blank: false }) %>
         </div>
