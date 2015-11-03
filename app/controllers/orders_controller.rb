@@ -21,6 +21,7 @@ class OrdersController < ApplicationController
       if current_user
           @order.user_id = current_user.id
         if @order.save
+          @order.update_attributes(created_at: Time.now.in_time_zone('Mumbai'))
           if current_user.shipping_address.present? 
             current_user.shipping_address.update_attributes(addrss1: params[:order][:address1], address2: params[:order][:address2], landmark: params[:order][:landmark], phone: params[:order][:phone])
           else
@@ -37,6 +38,7 @@ class OrdersController < ApplicationController
         end
       else
         if @order.save 
+          @order.update_attributes(created_at: Time.now.in_time_zone('Mumbai'))
           send_message
           flash[:success] = "Order Placed Successfully"
           @cart.clear
