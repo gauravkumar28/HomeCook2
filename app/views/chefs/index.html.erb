@@ -20,13 +20,13 @@
     <% if Time.now.in_time_zone('Mumbai') <= (Time.now.in_time_zone('Mumbai').beginning_of_day + 22.hours + 30.minutes) %> 
       <% if (Time.now.in_time_zone('Mumbai') <= ((Time.now.in_time_zone('Mumbai').beginning_of_day) + 18.hours )) %> 
         <div class="order-notice" >
-          <marquee behavior="slide" direction="left">Pre-order for today's dinner</marquee>
+          <marquee behavior="" direction="left" style="color: green">Pre-order for today's dinner</marquee>
         </div>
       <% end %>
       <%= render partial: 'menu' %>
     <% else %>
       <div class="order-notice" >
-        <marquee behavior="slide" direction="left">We are closed for the Day. You can order food tomorrow between 3PM-9PM.</marquee>
+        <marquee behavior="" direction="left" style="color: green">We are closed for the Day. You can order food tomorrow between 3PM-9PM.</marquee>
       </div>
     <% end %>
   </div>
