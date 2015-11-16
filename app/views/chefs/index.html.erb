@@ -17,7 +17,18 @@
     </div>
   </div>
   <div class='col-xs-6 has-above-50'>
-    <%= render partial: 'menu' %>
+    <% if Time.now.in_time_zone('Mumbai') <= (Time.now.in_time_zone('Mumbai').begening_of_day + 22.hours + 30.minutes) %> 
+      <% if Time.now.in_time_zone('Mumbai') <= (Time.now.in_time_zone('Mumbai').begening_of_day + 18.hours +) %> 
+        <div class="order-notice" >
+          <marquee behavior="slide" direction="left">Preorder for todays dinner</marquee>
+        </div>
+      <% end %>
+      <%= render partial: 'menu' %>
+    <% else %>
+      <div class="order-notice" >
+        <marquee behavior="slide" direction="left">We are closed for the Day. You can order food tomorrow between 3PM-9PM.</marquee>
+      </div>
+    <% end %>
   </div>
   <div class='col-xs-3'>
     <div class='summary has-above-50'>
