@@ -23,6 +23,12 @@
   <td class="large"><%= @cart.subtotal %></td>
   </tr>
   <tr>
+  <tr>
+  <td class="large">Discount</td>
+  <td class="large"></td>
+  <td class="large"><%= @discount ||= 10 %></td>
+  </tr>
+  <tr>
   <% if @cart.shipping_cost > 0 %>
     <td class="large">Delivery Charge</td>
     <td class="large"></td>
