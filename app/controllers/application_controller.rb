@@ -7,8 +7,12 @@ class ApplicationController < ActionController::Base
     #session.delete(:cart_id)
     cart_id = session[:cart_id]
     if session[:cart_id]
-      @cart = Cart.find(cart_id)
-      @cart ||=Cart.create
+      begin
+        @cart = Cart.find(cart_id)
+      rescue => e
+
+        @cart =Cart.create
+      end
     else
        @cart = Cart.create
     end
