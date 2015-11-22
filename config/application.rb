@@ -61,7 +61,7 @@ module HomeCook
     config.assets.version = '1.0'
 
     config.time_zone = 'Kolkata'
- cconfig.active_record.default_timezone = :local
- 
+    config.active_record.default_timezone = :local
+
   end
 end
