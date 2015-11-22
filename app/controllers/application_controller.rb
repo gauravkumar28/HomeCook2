@@ -6,7 +6,8 @@ class ApplicationController < ActionController::Base
   def add_bucket
     #session.delete(:cart_id)
     cart_id = session[:cart_id]
-    @cart = session[:cart_id] ? Cart.find(cart_id) : Cart.create
+    @cart = Cart.find(cart_id).nil? ? Cart.create : Cart.find(cart_id)
+    #@cart = session[:cart_id] ? Cart.find(cart_id) : Cart.create
     session[:cart_id] = @cart.id
   end
 
