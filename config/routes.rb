@@ -75,6 +75,12 @@ HomeCook::Application.routes.draw do
   match '/removecart', :to =>'chefs#removecart'
   match '/comingsoon', :to => 'chefs#comingsoon'
 
+  get '/api/v1/menu', :to => 'chefs#menu_list'
+  put '/api/v1/addcart', :to => 'chefs#add_to_cart'
+  put '/api/v1/removecart', :to => 'chefs#remove_from_cart'
+  get '/api/v1/cart', :to => 'chefs#cart'
+  post '/api/v1/order', :to => 'order#create_from_api'
+
   resources :feedbacks
   resources :party_orders
 

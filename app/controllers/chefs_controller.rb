@@ -65,4 +65,53 @@ class ChefsController < ApplicationController
   def comingsoon
     render :layout => false
   end
+
+
+  def menu_list
+    puts params if params['nonveg'] == "true"
+    @location = Location.find_by_name(params['location'])
+    session['location_id'] = @location.id if @location.present?
+    params['veg'] ||= "true"
+    params['nonveg'] ||= "true"
+    params['menu_type'] ||="all"
+
+   @menus = if params['veg'] == "true" and params['nonveg'] == "true"
+              Menu.all
+            elsif params['veg'] == "true"
+              Menu.where(category: 'veg') 
+            elsif params['nonveg'] =="true"
+              Menu.where(category: 'non-veg') 
+            else 
+              []
+            end
+    @menus = @menus.select{|menu| menu.menu_type == params['menu_type']} unless params['menu_type'] == 'all'
+    render status: 200, json: @menus
+  end
+
+  def add_to_cart
+    menu_id = params['menu_id']
+    menu = Menu.find(menu_id)
+    @cart.add(menu, menu.price)
+
+    render status: 200, json: @cart
+  end
+
+
+  def remove_from_cart
+    menu_id = params['menu_id']
+    menu = Menu.find(menu_id)
+    @cart.add(menu, menu.price)
+
+    render status: 200, json: @cart
+  end
+  
+
+  def cart
+
+    result =  {}
+    @cart.cart_items.each do |cart_item|
+      result[@cart.id] = {name: cart_item.item.name, quantity: cart_item.quantity, price: cart_item.quantity * cart_item.price}
+    end
+    render status: 200, json: result
+  end
 end
