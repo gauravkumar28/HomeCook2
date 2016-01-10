@@ -80,6 +80,8 @@ HomeCook::Application.routes.draw do
   put '/api/v1/removecart', :to => 'chefs#remove_from_cart'
   get '/api/v1/cart', :to => 'chefs#cart'
   post '/api/v1/order', :to => 'order#create_from_api'
+  get '/api/v1/coupon', :to => 'order#coupon'
+  get '/api/v1/orders', :to => 'home#list'
 
   resources :feedbacks
   resources :party_orders
