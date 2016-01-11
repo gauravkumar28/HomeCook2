@@ -83,6 +83,16 @@ HomeCook::Application.routes.draw do
   get '/api/v1/coupon', :to => 'orders#get_coupan'
   get '/api/v1/orders', :to => 'home#list'
 
+
+  namespace :api do
+  namespace :v1 do
+    devise_scope :user do
+      post 'sessions' => 'sessions#create', :as => 'login'
+      delete 'sessions' => 'sessions#destroy', :as => 'logout'
+    end
+  end
+end
+
   resources :feedbacks
   resources :party_orders
 
