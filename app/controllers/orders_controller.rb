@@ -152,7 +152,7 @@ class OrdersController < ApplicationController
         render status: 200, json: @order
       else
         #flash[:error] = "Order Not Placed Try Again"
-        render status: 200, json: {error: "Order Not Placed Try Again" }
+        render status: 400, json: {error: "Order Not Placed Try Again" }
       end
     else
       @order = Order.new(params[:order])
@@ -174,7 +174,7 @@ class OrdersController < ApplicationController
           render status: 200, json: @order
         else
           #flash[:error] = "Order Not Placed Try Again"
-          render status: 200, json: {error: "Order Not Placed Try Again" }
+          render status: 400, json: {error: "Order Not Placed Try Again" }
         end
       else
         if @order.save 
@@ -185,7 +185,7 @@ class OrdersController < ApplicationController
          render status: 200, json: @order
         else
           #flash[:error] = "Order Not Placed Try Again"
-          render status: 200, json: {error: "Order Not Placed Try Again" }
+          render status: 400, json: {error: "Order Not Placed Try Again" }
         end
       end
     end 
