@@ -5,7 +5,7 @@ class Api::V1::RegistrationsController < Devise::RegistrationsController
   respond_to :json
 
   def create
-
+    Rails.logger.info "/POST regesirations #{params}"
     build_resource(sign_up_params)
 
     #resource.skip_confirmation!
@@ -22,9 +22,4 @@ class Api::V1::RegistrationsController < Devise::RegistrationsController
                         :data => {} }
     end
   end
-
-  private
-    def sign_up_params
-      params.require("user").permit("name", "email", "password", "password_conformation")
-    end
 end
