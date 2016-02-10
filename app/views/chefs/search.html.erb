@@ -14,7 +14,7 @@
                                 <!-- <a href="index.html" rel="home">
                                     <img src="logo.jpg" alt="ZupaRestaurant" />
                                 </a> -->
-                                <%= link_to image_tag("logoj.png"), root_path, class: "navbar-brand"%>
+                                <%= link_to image_tag("logo.png"), root_path, class: "navbar-brand"%>
                             </div><!-- /.logo -->
                         </div>
                         <div class="span10">
@@ -52,6 +52,7 @@
                     <li class="flex-active-slide" style="width: 100%; float: left; margin-right: -100%; position: relative; opacity: 1; display: block; z-index: 2;">
                         <div class="content-slider">
                             <h2 class="FromLeft captionDelay2">Welcome to the <b><span class="color">IndiaKaDabba</span></b></h2>
+
                             <div class="divider FromLeft captionDelay5"></div>
                             <p class="FromLeft captionDelay8"><b>Amazing</b> and <b>delicious</b> dishes only with us!</p>
                             <%= form_tag chefs_path, :method => 'get', id: 'search_form' do %>
@@ -65,20 +66,24 @@
           <% end %>
                         </div>
                     </li>
-                    <!--***li style="width: 100%; float: left; margin-right: -100%; position: relative; opacity: 0; display: block; z-index: 1;" class="">
+
+                    <li style="width: 100%; float: left; margin-right: -100%; position: relative; opacity: 0; display: block; z-index: 1;" class="">
+
                         <div class="content-slider">
                             <h2 class="FromRight captionDelay2">Welcome to the <b>Zupa<span class="color">Restuarant</span></b></h2>
                             <div class="divider FromRight captionDelay5"></div>
                             <p class="FromRight captionDelay8"><b>Amazing</b> and <b>delicious</b> dishes only with us!</p>
-                            <!**%= form_tag chefs_path, :method => 'get', id: 'search_form' do %>
+
+                            <%= form_tag chefs_path, :method => 'get', id: 'search_form' do %>
           <!-- <div class="form-group">
-            <!**%= label_tag "Pune", nil, class: "btn btn-primary btn-lg form-control"%>
+            <%= label_tag "Pune", nil, class: "btn btn-primary btn-lg form-control"%>
           </div> -->
-          <!--**div class="form-group">
+          <div class="form-group">
             <%#= autocomplete_field_tag 'location', '', autocomplete_location_chefs_path, class: "form-control width-400" %>
-            <!**%= select_tag "location", options_for_select(Location.pluck(:name)),  {onchange: "$('#search_form').submit();", :prompt => 'Select Location', class: 'menu'} %>
+            <%= select_tag "location", options_for_select(Location.pluck(:name)),  {onchange: "$('#search_form').submit();", :prompt => 'Select Location', class: 'menu'} %>
           </div>
-          <!**% end %>
+          <% end %>
+
                         </div>
                     </li>
                     <li style="width: 100%; float: left; margin-right: -100%; position: relative; opacity: 0; display: block; z-index: 1;" class="">
@@ -86,17 +91,19 @@
                             <h2 class="FromTop captionDelay2">Welcome to the <b>Zupa<span class="color">Restuarant</span></b></h2>
                             <div class="divider FromTop captionDelay5"></div>
                             <p class="FromTop captionDelay8"><b>Amazing</b> and <b>delicious</b> dishes only with us!</p>
-                            <!**%= form_tag chefs_path, :method => 'get', id: 'search_form' do %>
+
+                            <%= form_tag chefs_path, :method => 'get', id: 'search_form' do %>
           <!-- <div class="form-group">
-            <!**%= label_tag "Pune", nil, class: "btn btn-primary btn-lg form-control"%>
+            <%= label_tag "Pune", nil, class: "btn btn-primary btn-lg form-control"%>
           </div> -->
-          <!--**div class="form-group">
+          <div class="form-group">
             <%#= autocomplete_field_tag 'location', '', autocomplete_location_chefs_path, class: "form-control width-400" %>
-            <!**%= select_tag "location", options_for_select(Location.pluck(:name)),  {onchange: "$('#search_form').submit();", :prompt => 'Select Location'} %>
+            <%= select_tag "location", options_for_select(Location.pluck(:name)),  {onchange: "$('#search_form').submit();", :prompt => 'Select Location'} %>
           </div>
-          <!**% end %>
+          <% end %>
                         </div>
-                    </li-->
+                    </li>
+
                 </ul>
             <ol class="flex-control-nav flex-control-paging"><li><a class="flex-active">1</a></li><li><a class="">2</a></li><li><a class="">3</a></li></ol></div>
         </div>
@@ -110,6 +117,7 @@
                     <div class="span12">
                         <div class="contact-slider-inner">
                             <span class="serve">Today is served from 9 am to 9 pm</span>
+
                             <span class="phone">Call us and find out more +919819537603</span>
                             <span class="address">Pune Near Power House, Rasta Peth Swargate-411037</span>
                         </div>
@@ -140,6 +148,7 @@
                         </div><!-- /.roll-titlebox -->
                     </div><!-- /.span12 -->
                     <div class="span6">
+
                         <div style="margin-top: 10px; ">
                             <%= link_to image_tag("Veg_Biryani1.jpg"), root_path%>
                         </div>
@@ -152,6 +161,8 @@
                         </p>
                     </div>
                         <!--div class="roll-icon-list">
+
+
                             <div class="list-item">
                                 <div class="icon">
                                     <img src="images/pizza.svg" alt="image">
@@ -179,7 +190,8 @@
                                     <p>Nulla id tortor nec lectus feugiat ultricies. Duis sit amet augue vitae dui bibendum rhoncus ut a justo. Maecenas sit amet mauris metus. </p>
                                 </div>
                             </div>
-                        </div--><!-- /.roll-icon-list -->
+
+                        </div><!-- /.roll-icon-list -->
                     </div><!-- /.span6 -->
                 </div><!-- /.row -->
             </div><!-- /.container -->
@@ -310,6 +322,7 @@
                         <div class="span12">
                             <div class="roll-testimonials">
                                 <div class="customer">
+
                                     <div class="name">Gaurav Reddy</div>
                                     <div class="avatar">
                                         <%= link_to image_tag("gaurav.jpg"), root_path%>
@@ -327,6 +340,7 @@
                                     The food was good considering the price and timely delivered.
                                     </blockquote>
                                     
+
                                 </div>
                             </div><!-- /.roll-testimonials -->
                         </div><!-- /.span12 -->
@@ -350,6 +364,7 @@
                             </div><!-- /.roll-titlebox -->
                         </div><!-- /.span12 -->
                         <div class="span4 offset2">
+
                             <ul class="roll-infomation">
                                 <li class="address">
                                     Pune Near Power House,<br> Rasta Peth
@@ -364,6 +379,7 @@
                                 <li class="phone">+91 9819537603</li>
                                 <li class="email">contact@indiakadabba.com
                                 </li>
+
                                 <li class="time"><span>Mon - Thur:</span> 8:00 am - 9:00 pm<br><span>Fri - Sat:</span> 10:00 am - 1:00 am<br><span>Sun:</span> 11:00 am - 10:00 pm</li>
                             </ul>
                             <ul class="roll-socials">
@@ -432,7 +448,9 @@
                     <div class="content-section">
                         <div class="span12">
                             <h4 class="thanks">THANK YOU AND WELCOME BACK!</h4>
+
                             <p class="copyr">All Right Reserved • IndiaKaDabba • 2016</p>
+
                         </div><!-- /.span12 -->
                     </div><!-- /.content-section -->
                 </div><!-- /.row -->
@@ -496,6 +514,7 @@
     $( "#datepicker" ).datepicker();
     });
     </script>
+
 
       
 
