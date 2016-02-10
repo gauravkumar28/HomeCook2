@@ -4,7 +4,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   #GET /resource/sign_up
 
-  respond_to :js, :html
+  respond_to :js, :html, :json
   def new
     super
    # resource ||= User.new()
@@ -12,13 +12,27 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   #POST /resource
   def create
-    @user = User.new(params[:user])
-    if @user.save
-      # code = rand(0000..9999).to_s.rjust(4, "0")
-      # send_sms(@user.phone, code)
-      sign_in @user
-      #flash[:notice] = 'Signned Up Successfully!'
-      render :js => "window.location = '#{session[:return_to]}'" and return
+    unless params[:api]
+      @user = User.new(params[:user])
+      if @user.save
+        # code = rand(0000..9999).to_s.rjust(4, "0")
+        # send_sms(@user.phone, code)
+        sign_in @user
+        #flash[:notice] = 'Signned Up Successfully!'
+        render :js => "window.location = '#{session[:return_to]}'" and return
+      end
+    else
+      @user = User.new(params[:user])
+      if @user.save
+        # code = rand(0000..9999).to_s.rjust(4, "0")
+        # send_sms(@user.phone, code)
+        sign_in @user
+        #flash[:notice] = 'Signned Up Successfully!'
+        render status: 200, json: @user
+      
+      else
+        render status: 404, json: {error: "signup failed"}
+      end
     end
   end
 

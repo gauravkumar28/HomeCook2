@@ -9,25 +9,42 @@ before_filter :configure_sign_in_params, only: [:create]
 
   #POST /resource/sign_in
   def create
-    self.resource = warden.authenticate!(auth_options)
-    if resource && resource.active_for_authentication?
-      #set_flash_message(:notice, :signed_in) 
-      sign_in(resource_name, resource)
-      render :js => "window.location = '#{session[:return_to]}'" and return
+    unless params[:api]
+      self.resource = warden.authenticate!(auth_options)
+      if resource && resource.active_for_authentication?
+        #set_flash_message(:notice, :signed_in) 
+        sign_in(resource_name, resource)
+        render :js => "window.location = '#{session[:return_to]}'" and return
+      else
+        
+      end
     else
-      
+       self.resource = warden.authenticate!(:scope => resource_name, :recall => "#{controller_path}#failure")
+       render :status => 200,
+           :json => { :success => true,
+                      :info => "Logged in" }
     end
   end
 
   #DELETE /resource/sign_out
   def destroy
-    super
+    unless params[:api]
+      super
+    else
+      warden.authenticate!(:scope => resource_name, :recall => "#{controller_path}#failure")
+    #current_user.update_column(:authentication_token, nil)
+    render :status => 200,
+           :json => { :success => true,
+                      :info => "Logged out",
+                      :data => {} }
+    end
   end
 
   def failure
-    respond_to do |format|
-      format.js { render:json => {:success => false, :errors => ["Login failed."]} }
-    end
+    render :status => 401,
+           :json => { :success => false,
+                      :info => "Login Failed",
+                      :data => {} }
   end
 
   protected
