@@ -11,7 +11,7 @@ class ChefsController < ApplicationController
     params[:veg] ||= "true"
     params[:nonveg] ||= "true"
     params[:menu_type] ||="all"
-
+    redirect_to root_path if @location.nil
    @menus = if params[:veg] == "true" and params[:nonveg] == "true"
               Menu.all
             elsif params[:veg] == "true"
@@ -21,7 +21,10 @@ class ChefsController < ApplicationController
             else 
               []
             end
+    if @location.id >= 14
+      @menus = @menus.where(location_id != nil)
     @menus = @menus.select{|menu| menu.menu_type == params[:menu_type]} unless params[:menu_type] == 'all'
+
     respond_to do |format|
       format.js #{ render :json => @menues }
       format.html { }
