@@ -6,6 +6,9 @@ class Api::V1::RegistrationsController < Devise::RegistrationsController
 
   def create
     build_resource
+    Rails.logger.info "/POST regesirations #{params}"
+    build_resource(sign_up_params)
+
     #resource.skip_confirmation!
     if resource.save
       sign_in resource
