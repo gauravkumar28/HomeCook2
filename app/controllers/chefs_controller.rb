@@ -22,7 +22,7 @@ class ChefsController < ApplicationController
               []
             end
     if @location.id >= 14
-      @menus = @menus.where(location_id != nil)
+      @menus = @menus.where(location_id: != nil)
     end
     @menus = @menus.select{|menu| menu.menu_type == params[:menu_type]} unless params[:menu_type] == 'all'
 
