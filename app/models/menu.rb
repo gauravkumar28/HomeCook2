@@ -25,7 +25,7 @@ class Menu < ActiveRecord::Base
   validates :name, :price, :presence => true
   validates :menu_type, :presence => true, inclusion: { in: Type.all }
   validates :category, :presence => true, inclusion: { in: Category.all }
-  validates :location_id, :presence => true, inclusion: { in: Location.pluck(:id)}
+  validates :location_id, :presence => true
 
 
   def self.display_order
