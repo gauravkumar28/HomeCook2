@@ -11,7 +11,7 @@ class ChefsController < ApplicationController
     params[:veg] ||= "true"
     params[:nonveg] ||= "true"
     params[:menu_type] ||="all"
-    redirect_to root_path if @location.nil
+    redirect_to root_path if @location.nil?
    @menus = if params[:veg] == "true" and params[:nonveg] == "true"
               Menu.all
             elsif params[:veg] == "true"
