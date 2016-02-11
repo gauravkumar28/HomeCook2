@@ -20,7 +20,8 @@ class Menu < ActiveRecord::Base
   	  [VEG, NON_VEG]
   	end
   end 
-
+  
+  belongs_to :location
   validates :name, :price, :presence => true
   validates :menu_type, :presence => true, inclusion: { in: Type.all }
   validates :category, :presence => true, inclusion: { in: Category.all }

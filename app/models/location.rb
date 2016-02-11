@@ -6,7 +6,7 @@ class Location < ActiveRecord::Base
   
   has_many :orders
   has_many :time_frames
-
+  has_many :menus
   validates :name, :presence => true
 
   def get_available_slots
