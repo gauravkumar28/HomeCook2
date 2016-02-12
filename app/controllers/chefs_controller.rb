@@ -23,6 +23,7 @@ class ChefsController < ApplicationController
             end
     
     @menus = @menus.select{|menu| menu.location_id.present?} if @location.id >= 14
+    @menus = @menus.reject{|menu| menu.location_id.present?} if @location.id < 14
     @menus = @menus.select{|menu| menu.menu_type == params[:menu_type]} unless params[:menu_type] == 'all'
 
     respond_to do |format|
