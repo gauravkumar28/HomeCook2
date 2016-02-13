@@ -140,8 +140,9 @@ class OrdersController < ApplicationController
   end
 
   def create_from_api
+    Rails.logger "/POST /order with params #{params}"
     user = User.where(email: params["email_id"]).first
-    @order = Order.new(address1: params["order"]["address1"], address2: param["order"]["address2"], landmark: param["order"]["landmark"], phone: param["order"]["phone"], location_id: params["order"]["location"], user_id: user.id, time: params["order"]["time"], summery: params["order"]["summery"], price: params["order"]["price"], status: params["order"]["status"], instruction: params["order"]["instruction"])
+    @order = Order.new(address1: params["order"]["address1"], address2: params["order"]["address2"], landmark: params["order"]["landmark"], phone: params["order"]["phone"], location_id: params["order"]["location"], user_id: user.id, time: params["order"]["time"], summery: params["order"]["summery"], price: params["order"]["price"], status: params["order"]["status"], instruction: params["order"]["instruction"])
     @order.created_at = Time.now.in_time_zone('Mumbai')
     if @order.save
       send_message
