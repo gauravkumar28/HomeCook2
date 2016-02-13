@@ -19,22 +19,12 @@
     </div>
   </div>
   <div class='col-xs-6 has-above-50'>
-    <% if Time.now.in_time_zone('Mumbai') <= (Time.now.in_time_zone('Mumbai').beginning_of_day + 22.hours + 30.minutes) %> 
-      <% if (Time.now.in_time_zone('Mumbai') <= ((Time.now.in_time_zone('Mumbai').beginning_of_day) + 18.hours )) %> 
-        <div class="order-notice" >
-          <marquee behavior="" direction="left" style="color: green">Pre-order for today's dinner</marquee>
-        </div>
-      <% end %>
+    
       <%= render partial: 'menu' %>
-    <% else %>
-      <div class="order-notice" >
-        <marquee behavior="" direction="left" style="color: green"><b>We are closed for the Day. You can order food tomorrow between 3PM-9PM.</b></marquee>
-        <%= render partial: 'menu' %>
-      </div>
-    <% end %>
+    
   </div>
   <div class='col-xs-3'>
-    <% if Time.now.in_time_zone('Mumbai') <= (Time.now.in_time_zone('Mumbai').beginning_of_day + 22.hours + 30.minutes) %> 
+    
       <div class='summary has-above-50'>
       <div class='notice fade in'>
         *Free delivery over 100 Rs
@@ -58,7 +48,6 @@
         <% end %>
         <% end %>
       </div>
-    <% end %>
   </div>
   <% end %>
 </div>
