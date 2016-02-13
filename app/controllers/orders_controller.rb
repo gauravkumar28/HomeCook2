@@ -146,8 +146,8 @@ class OrdersController < ApplicationController
     @order = Order.new(address1: params["order"]["address1"], address2: params["order"]["address2"], landmark: params["order"]["landmark"], phone: params["order"]["phone"], location_id: params["order"]["location"], user_id: user.id, time: params["order"]["time"], summery: params["order"]["summery"], price: params["order"]["price"], status: params["order"]["status"], instruction: params["order"]["instruction"])
     @order.created_at = Time.now.in_time_zone('Mumbai')
     if @order.save
-      send_message
-      @cart.clear
+      #send_message
+      #@cart.clear
         #redirect_to home_index_path({id: current_user.id})
       render status: 200, json: @order.to_json
     else
