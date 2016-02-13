@@ -6,7 +6,7 @@ class ChefsController < ApplicationController
   respond_to :js, :html
   def index
     #flash[:notice] = "We are closed on 28th and 29th November. Sorry for inconvenience. You can book your orders from 30th Nov"
-    @location = Location.find_by_name(params[:location])
+    @location = Location.find_by_id(params[:location].to_i)
     session[:location_id] = @location.id if @location.present?
     params[:veg] ||= "true"
     params[:nonveg] ||= "true"
