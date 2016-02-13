@@ -75,7 +75,7 @@ class ChefsController < ApplicationController
     puts params if params['nonveg'] == "true"
     @location = Location.find_by_id(params['location_id'].to_i)
     render status:  400, json: {error: "location not found"} and return if @location.nil?
-    session['location_id'] = @location.id if @location.present?
+    #session[:location_id] = @location.id if @location.present?
     params['veg'] ||= "true"
     params['nonveg'] ||= "true"
     params['menu_type'] ||="all"
@@ -89,7 +89,7 @@ class ChefsController < ApplicationController
             else 
               []
             end
-            @menus = @menus.select{|menu| menu.location_id.present?} if @location.id >= 14
+    @menus = @menus.select{|menu| menu.location_id.present?} if @location.id >= 14
     @menus = @menus.reject{|menu| menu.location_id.present?} if @location.id < 14
     @menus = @menus.select{|menu| menu.menu_type == params['menu_type']} unless params['menu_type'] == 'all'
     render status: 200, json: @menus
@@ -120,5 +120,10 @@ class ChefsController < ApplicationController
       result[@cart.id] = {name: cart_item.item.name, quantity: cart_item.quantity, price: cart_item.quantity * cart_item.price}
     end
     render status: 200, json: result
+  end
+
+  def locations
+
+   render status: 200, json: Location.select([:name, :id]).to_json
   end
 end

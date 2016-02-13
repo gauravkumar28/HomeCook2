@@ -4,9 +4,9 @@ class HomeController < ApplicationController
   end
 
   def list
-  	user = User.where(:id => params[:id]).includes(:orders).first
+  	user = User.where(:email => params["email"]).includes(:orders).first
   	if user 
-  		render status: 200, json: user.orders
+  		render status: 200, json: user.orders.to_json
     else
      	render status: 400, json: {error: "User not found"}
     end

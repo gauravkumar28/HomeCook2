@@ -82,6 +82,7 @@ HomeCook::Application.routes.draw do
   post '/api/v1/order', :to => 'orders#create_from_api'
   get '/api/v1/coupon', :to => 'orders#get_coupan'
   get '/api/v1/orders', :to => 'home#list'
+  get '/api/v1/locations', :to => 'chefs#locations'
 
 
   namespace :api do
