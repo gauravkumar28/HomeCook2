@@ -149,9 +149,9 @@ class OrdersController < ApplicationController
       #send_message
       #@cart.clear
         #redirect_to home_index_path({id: current_user.id})
-      render status: 200, json: @order.to_json
+      render status: 200, json: @order.to_json and return
     else
-      render status: 400, json: {error: "Order Not Placed Try Again" }
+      render status: 400, json: {error: "Order Not Placed Try Again" } and return
     end
   end
 end
