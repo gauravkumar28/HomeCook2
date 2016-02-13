@@ -4,22 +4,24 @@ class ApplicationController < ActionController::Base
   
   after_filter :store_location
   def add_bucket
-    #session.delete(:cart_id)
-    cart_id = session[:cart_id]
-    if session[:cart_id]
-      begin
-        @cart = Cart.find(cart_id)
-      rescue => e
+    unless params["source"] == "mobile"
+      #session.delete(:cart_id)
+      cart_id = session[:cart_id]
+      if session[:cart_id]
+        begin
+          @cart = Cart.find(cart_id)
+        rescue => e
 
-        @cart =Cart.create
+          @cart =Cart.create
+        end
+      else
+         @cart = Cart.create
       end
-    else
-       @cart = Cart.create
+      #@cart = session[:cart_id] ? Cart.find(cart_id) : Cart.create
+
+
+      session[:cart_id] = @cart.id
     end
-    #@cart = session[:cart_id] ? Cart.find(cart_id) : Cart.create
-
-
-    session[:cart_id] = @cart.id
   end
 
   def after_sign_in_path_for(resource)
