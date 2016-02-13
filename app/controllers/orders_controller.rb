@@ -141,7 +141,8 @@ class OrdersController < ApplicationController
 
   def create_from_api
     Rails.logger.info "/POST /order with params #{params.inspect}"
-    user = User.where(email: params["email_id"]).first
+    user = User.where(email: params["email"]).first
+    render status: 400, json: {error: "User not found" } if user.nil?
     @order = Order.new(address1: params["order"]["address1"], address2: params["order"]["address2"], landmark: params["order"]["landmark"], phone: params["order"]["phone"], location_id: params["order"]["location"], user_id: user.id, time: params["order"]["time"], summery: params["order"]["summery"], price: params["order"]["price"], status: params["order"]["status"], instruction: params["order"]["instruction"])
     @order.created_at = Time.now.in_time_zone('Mumbai')
     if @order.save
