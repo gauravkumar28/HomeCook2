@@ -33,7 +33,7 @@ class Menu < ActiveRecord::Base
   end
 
   def self.get_description
-    {:paratha => ['Paratha', 'we serve 2 parathas with pudina chutney and raita'],
+    {:paratha => ['Paratha', ''],
     :rice => ['Rice', 'served with raita'],
     :drink => ['Drink',''],
     :gravy => ['Gravy','served with raita']
