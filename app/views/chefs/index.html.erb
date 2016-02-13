@@ -5,9 +5,9 @@
   </div>
   <div class='col-xs-2 thirty-five-mobile-width'>
     <div class='filter has-above-50'>
-      <%= check_box_tag 'veg', "veg", true, :onchange => 'Filter.applyCheckbox("", "<%= session[:location_id] %>");return false;' %>
+      <%= check_box_tag 'veg', "veg", true, :onchange => "Filter.applyCheckbox('', '<%= session[:location_id] %>');return false;" %>
       <%= label_tag "veg only", nil, class: 'header has-left' %></br>
-      <%= check_box_tag 'non-veg', "nonveg", true, :onchange => 'Filter.applyCheckbox("", "<%= session[:location_id] %>");return false;' %>
+      <%= check_box_tag 'non-veg', "nonveg", true, :onchange => "Filter.applyCheckbox( '', '<%= session[:location_id] %>');return false;" %>
       <%= label_tag "non veg only", nil, class: 'header has-left' %>
       <div class='list-group'>
         <%= link_to "All", {:controller => "chefs", :action => "index"}, class: 'header list-group-item special active', :onclick => 'Filter.applyType("all", "#all", "<%= session[:location_id] %>");return false;', id: 'all' %>
