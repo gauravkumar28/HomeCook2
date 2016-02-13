@@ -5,16 +5,16 @@
   </div>
   <div class='col-xs-2 thirty-five-mobile-width'>
     <div class='filter has-above-50'>
-      <%= check_box_tag 'veg', "veg", true, :onchange => "Filter.applyCheckbox('', '<%= session[:location_id] %>');return false;" %>
+      <%= check_box_tag 'veg', "veg", true, :onchange => "Filter.applyCheckbox('', #{session[:location_id]});return false;" %>
       <%= label_tag "veg only", nil, class: 'header has-left' %></br>
-      <%= check_box_tag 'non-veg', "nonveg", true, :onchange => "Filter.applyCheckbox( '', '<%= session[:location_id] %>');return false;" %>
+      <%= check_box_tag 'non-veg', "nonveg", true, :onchange => "Filter.applyCheckbox("", #{session[:location_id]});return false;" %>
       <%= label_tag "non veg only", nil, class: 'header has-left' %>
       <div class='list-group'>
-        <%= link_to "All", {:controller => "chefs", :action => "index"}, class: 'header list-group-item special active', :onclick => 'Filter.applyType("all", "#all", "<%= session[:location_id] %>");return false;', id: 'all' %>
-        <%= link_to "Paratha", {:controller => "chefs", :action => "index", :menu_type => "paratha"}, class: 'header list-group-item special', :onclick => 'Filter.applyType("paratha", "#paratha", "<%= session[:location_id] %>");return false;', id: 'paratha' %>
-        <%= link_to "Rice", {:controller => "chefs", :action => "index", :menu_type => "rice"}, class: 'header list-group-item special', :onclick => 'Filter.applyType("rice", "#rice", "<%= session[:location_id] %>");return false;', id: 'rice'%>
+        <%= link_to "All", {:controller => "chefs", :action => "index"}, class: 'header list-group-item special active', :onclick => 'Filter.applyType("all", "#all", #{session[:location_id]});return false;', id: 'all' %>
+        <%= link_to "Paratha", {:controller => "chefs", :action => "index", :menu_type => "paratha"}, class: 'header list-group-item special', :onclick => 'Filter.applyType("paratha", "#paratha", #{session[:location_id]});return false;', id: 'paratha' %>
+        <%= link_to "Rice", {:controller => "chefs", :action => "index", :menu_type => "rice"}, class: 'header list-group-item special', :onclick => 'Filter.applyType("rice", "#rice", #{session[:location_id]});return false;', id: 'rice'%>
         <%#= link_to "Gravy", {:controller => "chefs", :action => "index", :menu_type => "gravy"}, class: 'header list-group-item special', :onclick => 'Filter.applyType("gravy", "#gravy");return false;', id: 'gravy' %>
-        <%= link_to "Drink", {:controller => "chefs", :action => "index", :menu_type => "drink"}, class: 'header list-group-item special', :onclick => 'Filter.applyType("drink", "#drink", "<%= session[:location_id] %>");return false;', id: 'drink' %>
+        <%= link_to "Drink", {:controller => "chefs", :action => "index", :menu_type => "drink"}, class: 'header list-group-item special', :onclick => 'Filter.applyType("drink", "#drink", #{session[:location_id]});return false;', id: 'drink' %>
       </div>
     </div>
   </div>
