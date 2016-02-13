@@ -73,7 +73,8 @@ class ChefsController < ApplicationController
 
   def menu_list
     puts params if params['nonveg'] == "true"
-    @location = Location.find_by_name(params['location'])
+    @location = Location.find_by_id(params['location'])
+    render status:  400, json: {error: "location not found"} and return 
     session['location_id'] = @location.id if @location.present?
     params['veg'] ||= "true"
     params['nonveg'] ||= "true"
