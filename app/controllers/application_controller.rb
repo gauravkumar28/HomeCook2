@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   
   after_filter :store_location
   def add_bucket
-    #unless params["source"] == "mobile"
+    unless params["source"] == "mobile"
       #session.delete(:cart_id)
       cart_id = session[:cart_id]
       if session[:cart_id]
@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
 
 
       session[:cart_id] = @cart.id
-    #end
+    end
   end
 
   def after_sign_in_path_for(resource)

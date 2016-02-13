@@ -141,17 +141,21 @@ class OrdersController < ApplicationController
 
   def create_from_api
     Rails.logger.info "/POST /order with params #{params.inspect}"
-    user = User.where(email: params["email"]).first
-    render status: 400, json: {error: "User not found" } if user.nil? and return
-    @order = Order.new(address1: params["order"]["address1"], address2: params["order"]["address2"], landmark: params["order"]["landmark"], phone: params["order"]["phone"], location_id: params["order"]["location"], user_id: user.id, time: params["order"]["time"], summery: params["order"]["summery"], price: params["order"]["price"], status: params["order"]["status"], instruction: params["order"]["instruction"])
-    @order.created_at = Time.now.in_time_zone('Mumbai')
-    if @order.save
-      #send_message
-      #@cart.clear
-        #redirect_to home_index_path({id: current_user.id})
-      render status: 200, json: @order.to_json and return
-    else
-      render status: 400, json: {error: "Order Not Placed Try Again" } and return
+    begin
+      user = User.where(email: params["email"]).first
+      render status: 400, json: {error: "User not found" } if user.nil? and return
+      @order = Order.new(address1: params["order"]["address1"], address2: params["order"]["address2"], landmark: params["order"]["landmark"], phone: params["order"]["phone"], location_id: params["order"]["location"], user_id: user.id, time: params["order"]["time"], summery: params["order"]["summery"], price: params["order"]["price"], status: params["order"]["status"], instruction: params["order"]["instruction"])
+      @order.created_at = Time.now.in_time_zone('Mumbai')
+      if @order.save
+        #send_message
+        #@cart.clear
+          #redirect_to home_index_path({id: current_user.id})
+        render status: 200, json: @order.to_json and return
+      else
+        render status: 400, json: {error: "Order Not Placed Try Again" } and return
+      end
+    rescue Exception => e
+      render status: 422, json: {error: "Order Not Placed Try Again" } and return
     end
   end
 end
