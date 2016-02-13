@@ -140,54 +140,16 @@ class OrdersController < ApplicationController
   end
 
   def create_from_api
-    if params[:shipping_address].present?
-      address = current_user.shipping_address
-      @order = Order.new(address1: address.addrss1, address2: address.address2, landmark: address.landmark, phone: address.phone, location_id: session[:location_id], user_id: current_user.id, time: params[:order][:time], summery: params[:order][:summery], price: params[:order][:price], status: params[:order][:status], instruction: params[:order][:instruction])
-      @order.created_at = Time.now.in_time_zone('Mumbai')
-      if @order.save 
-        flash[:success] = "Order Placed Successfully"
-        send_message
-        @cart.clear
+    user = User.where(email: params["email_id"]).first
+    @order = Order.new(address1: params["order"]["address1"], address2: param["order"]["address2"], landmark: param["order"]["landmark"], phone: param["order"]["phone"], location_id: params["order"]["location"], user_id: user.id, time: params["order"]["time"], summery: params["order"]["summery"], price: params["order"]["price"], status: params["order"]["status"], instruction: params["order"]["instruction"])
+    @order.created_at = Time.now.in_time_zone('Mumbai')
+    if @order.save
+      send_message
+      @cart.clear
         #redirect_to home_index_path({id: current_user.id})
-        render status: 200, json: @order
-      else
-        #flash[:error] = "Order Not Placed Try Again"
-        render status: 400, json: {error: "Order Not Placed Try Again" }
-      end
+      render status: 200, json: @order.to_json
     else
-      @order = Order.new(params[:order])
-      @order.created_at = Time.now.in_time_zone('Mumbai')
-      @order.location_id = session[:location_id]
-      if current_user
-          @order.user_id = current_user.id
-        if @order.save
-          @order.update_attributes(created_at: Time.now.in_time_zone('Mumbai'))
-          if current_user.shipping_address.present? 
-            current_user.shipping_address.update_attributes(addrss1: params[:order][:address1], address2: params[:order][:address2], landmark: params[:order][:landmark], phone: params[:order][:phone])
-          else
-            shipping_address = ShippingAddress.new(addrss1: params[:order][:address1], address2: params[:order][:address2], landmark: params[:order][:landmark], phone: params[:order][:phone])
-            shipping_address.user_id = current_user.id
-            shipping_address.save!
-          end
-          #flash[:success] = "Order Placed Successfully"
-          @cart.clear
-          render status: 200, json: @order
-        else
-          #flash[:error] = "Order Not Placed Try Again"
-          render status: 400, json: {error: "Order Not Placed Try Again" }
-        end
-      else
-        if @order.save 
-          @order.update_attributes(created_at: Time.now.in_time_zone('Mumbai'))
-          send_message
-          flash[:success] = "Order Placed Successfully"
-          @cart.clear
-         render status: 200, json: @order
-        else
-          #flash[:error] = "Order Not Placed Try Again"
-          render status: 400, json: {error: "Order Not Placed Try Again" }
-        end
-      end
-    end 
+      render status: 400, json: {error: "Order Not Placed Try Again" }
+    end
   end
 end
