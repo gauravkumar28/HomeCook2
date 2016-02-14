@@ -19,7 +19,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
         # send_sms(@user.phone, code)
         sign_in @user
         #flash[:notice] = 'Signned Up Successfully!'
-        render :js => "window.location = '#{session[:return_to]}'" and return
+        redirect_to :back
+        #render :js => "window.location = '#{session[:return_to]}'" and return
       end
     else
       @user = User.new(params[:user])
