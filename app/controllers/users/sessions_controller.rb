@@ -14,7 +14,8 @@ before_filter :configure_sign_in_params, only: [:create]
       if resource && resource.active_for_authentication?
         #set_flash_message(:notice, :signed_in) 
         sign_in(resource_name, resource)
-        render :js => "window.location = '#{session[:return_to]}'" and return
+        redirect_to :back
+        #render :js => "window.location = '#{session[:return_to]}'" and return
       else
         
       end

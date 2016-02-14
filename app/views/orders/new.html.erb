@@ -1,4 +1,7 @@
-<div class='col-xs-12'>
+<body class="one-page full-screen">
+   <%= javascript_include_tag "application" %>
+   <%= render partial: 'layouts/header.html.erb' %>
+        <div class='col-xs-12'>
   <div class='col-xs-6 has-above'>
     <div class='col-xs-12 header has-above'>
       Order Summary
@@ -12,3 +15,5 @@
       <!-- <button class='btn btn-warning has-above'>Place Order</button> -->
   </div>
 </div>
+<%= render partial: 'layouts/footer' %>
+</body>

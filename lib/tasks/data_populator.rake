@@ -3,7 +3,7 @@ namespace :db do
     require 'faker'
     require 'populator'
     Location_Name = ["FC Road", "SB Road", "JM Road", "Shivaji Nagar", "Wakewadi", "E-Square", "Kasbapeth", "COEP Hostels", "Deccan Gymkhana"]
-    #Location_Name = ["CoEP Hostels"]
+    #inLocation_Name = ["CoEP Hostels"]
     index = 1
     Time_Frame_Time = ['7AM - 8 AM', '8AM - 9AM', '10AM - 11AM','11AM - 12PM', '12PM - 1PM', '1PM - 2PM', '2PM - 3PM', '7 PM-8 PM', '8PM - 9PM', '9PM - 10PM']
     Location.populate 9 do |location|

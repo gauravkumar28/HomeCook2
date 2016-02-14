@@ -39,9 +39,9 @@ gem "jquery-ui-rails"
 # To use debugger
 # gem 'debugger'
 
-group :development do
-  gem 'debugger'
-end
+#group :development do
+ # gem 'debugger'
+#end
 gem 'devise'
 #gem 'devise-otp'
 gem 'activeadmin'
@@ -60,10 +60,10 @@ gem 'pony', '~> 1.11'
 gem 'sms_fu'
 gem "paperclip", "~> 4.3"
 
-group :production do
-  gem 'rails_12factor'
-  gem 'pg'
-end
+#group :production do
+ # gem 'rails_12factor'
+  #gem 'pg'
+#end
 
 gem 'acts_as_shopping_cart', :github => 'crowdint/acts_as_shopping_cart', :branch => '0-1-x'
 

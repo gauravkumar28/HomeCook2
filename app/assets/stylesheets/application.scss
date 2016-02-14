@@ -12,6 +12,16 @@
  *= require_tree .
  *= require jquery-ui
  *= require sweet-alert
+ *= require animate
+ *= require bootstrap
+ *= require datepicker
+ *= require flexslider
+ *= home
+ *= mobile_rules
+ *= owl.carousel
+ *= shortcodes
+ *= style
+ *= supersized
  */
 
 @import "bootstrap";
@@ -132,7 +142,11 @@
 	color: white;
 }
 
+.search{
+	width: 40%;
+	
 
+}
 .white{
 	display: block;
 	background-color: white;
