@@ -47,6 +47,7 @@ HomeCook::Application.configure do
 
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
   # config.assets.precompile += %w( search.js )
+  config.assets.initialize_on_precompile = true
   config.assets.precompile += ['active_admin.css', 'active_admin.js', 'active_admin/print.css', 'jquery.js']
   config.assets.precompile += [ "jquery.min.js","bootstrap.min.js","jquery.easing.js", "matchMedia.js", "jquery-waypoints.js", "jquery.bxslider.js","parallax.js","imagesloaded.min.js", "jquery.isotope.min.js","jquery.sticky.js","jquery.flexslider-min.js","owl.carousel.min.js","jquery.countdown.js"]
 
