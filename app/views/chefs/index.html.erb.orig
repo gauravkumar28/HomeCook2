@@ -44,46 +44,26 @@
             </div><!-- /.header-wrap -->
         </header><!-- /.header -->
 
-<div class='container' style="min-height:540px;">
+<div class='span12' style="min-height:540px;">
    <% @close = false %>
 <% unless @close %> 
-<div class="row">
-  <!--div class='span1 zero-mobile-size'>
-  </div-->
-  
-  <div class='span3 thirty-five-mobile-width pull-left'>
+  <div class='span1 zero-mobile-size'>
+  </div>
+  <div class='span2 thirty-five-mobile-width'>
     <div class='filter has-above-50'>
-      <%#= check_box_tag 'veg', "veg", true, :onchange => 'Filter.applyCheckbox();return false;' %>
-      <%#= label_tag "veg only", nil, class: 'header has-left' %><!--/br-->
-      <%#= check_box_tag 'non-veg', "nonveg", true, :onchange => 'Filter.applyCheckbox();return false;' %>
-      <%#= label_tag "non veg only", nil, class: 'header has-left' %>
-      <label class="header has-left" for="veg_only">
-      <input checked="checked" id="veg" name="veg" onchange="Filter.applyCheckbox();return false;" type="checkbox" value="veg" />
-      Veg only</label>
-      <label class="header has-left" for="non_veg_only">
-      <input checked="checked" id="non-veg" name="non-veg" onchange="Filter.applyCheckbox();return false;" type="checkbox" value="nonveg" />
-      Non veg only</label>
-
-      <div class="list-group" >
-        
-        <div style="padding-left:5px;padding-bottom:13px;">
-          <%= link_to "All", {:controller => "chefs", :action => "index"}, class: 'header list-group-item ', :onclick => 'Filter.applyType("all", "#all");return false;', id: 'all' %>
-        </div>
-        <div style="padding-left:5px;padding-bottom:13px;">
-        <%= link_to "Paratha", {:controller => "chefs", :action => "index", :menu_type => "paratha"}, class: 'header list-group-item ', :onclick => 'Filter.applyType("paratha", "#paratha");return false;', id: 'paratha' %>
-        </div>
-        <div style="padding-left:5px;padding-bottom:13px;">
-        <%= link_to "Rice", {:controller => "chefs", :action => "index", :menu_type => "rice"}, class: 'header list-group-item ', :onclick => 'Filter.applyType("rice", "#rice");return false;', id: 'rice'%>
-        </div>
+      <%= check_box_tag 'veg', "veg", true, :onchange => 'Filter.applyCheckbox();return false;' %>
+      <%= label_tag "veg only", nil, class: 'header has-left' %></br>
+      <%= check_box_tag 'non-veg', "nonveg", true, :onchange => 'Filter.applyCheckbox();return false;' %>
+      <%= label_tag "non veg only", nil, class: 'header has-left' %>
+      <div class='list-group'>
+        <%= link_to "All", {:controller => "chefs", :action => "index"}, class: 'header list-group-item special active', :onclick => 'Filter.applyType("all", "#all");return false;', id: 'all' %>
+        <%= link_to "Paratha", {:controller => "chefs", :action => "index", :menu_type => "paratha"}, class: 'header list-group-item special', :onclick => 'Filter.applyType("paratha", "#paratha");return false;', id: 'paratha' %>
+        <%= link_to "Rice", {:controller => "chefs", :action => "index", :menu_type => "rice"}, class: 'header list-group-item special', :onclick => 'Filter.applyType("rice", "#rice");return false;', id: 'rice'%>
         <%#= link_to "Gravy", {:controller => "chefs", :action => "index", :menu_type => "gravy"}, class: 'header list-group-item special', :onclick => 'Filter.applyType("gravy", "#gravy");return false;', id: 'gravy' %>
-        <div style="padding-left:5px;padding-bottom:13px;">
-        <%= link_to "Drink", {:controller => "chefs", :action => "index", :menu_type => "drink"},  class: 'header list-group-item ', :onclick => 'Filter.applyType("drink", "#drink");return false;', id: 'drink' %>
-        </div>
-        
+        <%= link_to "Drink", {:controller => "chefs", :action => "index", :menu_type => "drink"}, class: 'header list-group-item special', :onclick => 'Filter.applyType("drink", "#drink");return false;', id: 'drink' %>
       </div>
     </div>
- </div>
- 
+  </div>
   <div class='span6 has-above-50'>
     <% if Time.now.in_time_zone('Mumbai') <= (Time.now.in_time_zone('Mumbai').beginning_of_day + 22.hours + 30.minutes) %> 
       <% if (Time.now.in_time_zone('Mumbai') <= ((Time.now.in_time_zone('Mumbai').beginning_of_day) + 18.hours )) %> 
@@ -99,7 +79,7 @@
       </div>
     <% end %>
   </div>
-  <div class='span3 pull-right'>
+  <div class='span3'>
     <% if Time.now.in_time_zone('Mumbai') <= (Time.now.in_time_zone('Mumbai').beginning_of_day + 22.hours + 30.minutes) %> 
       <div class='summary has-above-50'>
       <div class='notice fade in'>
@@ -126,10 +106,8 @@
       </div>
     <% end %>
   </div>
-</div>
   <% end %>
 </div>
-
 
 <footer class="footer simple">
             <div class="container">
