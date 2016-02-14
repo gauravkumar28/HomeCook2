@@ -1,10 +1,26 @@
 ---
+BIRYANI (2).png: BIRYANI (2)-62029e2c1b8c43da8e4b792374c66055.png
+BIRYANI (2)/index.png: BIRYANI (2)-62029e2c1b8c43da8e4b792374c66055.png
+BIRYANI (3).png: BIRYANI (3)-9023f3b695333efe2ef8e5b08a144875.png
+BIRYANI (3)/index.png: BIRYANI (3)-9023f3b695333efe2ef8e5b08a144875.png
+Veg_Biryani.jpg: Veg_Biryani-a2a499cf597e2d391aa53d4c586aad03.jpg
+Veg_Biryani/index.jpg: Veg_Biryani-a2a499cf597e2d391aa53d4c586aad03.jpg
+Veg_Biryani1.jpg: Veg_Biryani1-4967ba070fde758c84c04bec15728e9f.jpg
+Veg_Biryani1/index.jpg: Veg_Biryani1-4967ba070fde758c84c04bec15728e9f.jpg
+background.jpg: background-c00448447aa6384a53842b164082f9ae.jpg
+background/index.jpg: background-c00448447aa6384a53842b164082f9ae.jpg
 background.png: background-2bf21d2aa9638ca5c1a7c1d8ad18141f.png
 background/index.png: background-2bf21d2aa9638ca5c1a7c1d8ad18141f.png
 background1.jpg: background1-d0bdc86e13b58592461e9fe30a2bad41.jpg
 background1/index.jpg: background1-d0bdc86e13b58592461e9fe30a2bad41.jpg
+biryani-.jpg: biryani--f867ee2eabf044e4e993678a3190714b.jpg
+biryani-/index.jpg: biryani--f867ee2eabf044e4e993678a3190714b.jpg
+biryani.jpg: biryani-c9f2afec27541bb452def19c5176b8ec.jpg
+biryani/index.jpg: biryani-c9f2afec27541bb452def19c5176b8ec.jpg
 close.jpg: close-ada282366a1bc61f143417b1ac32e318.jpg
 close/index.jpg: close-ada282366a1bc61f143417b1ac32e318.jpg
+close.png: close-43524f6557498be5f8b38081846d25d3.png
+close/index.png: close-43524f6557498be5f8b38081846d25d3.png
 coming.jpg: coming-3dcc2e5ae9d48323ba91e75d76e4e70d.jpg
 coming/index.jpg: coming-3dcc2e5ae9d48323ba91e75d76e4e70d.jpg
 fb.png: fb-9338e727cf833fc2038a8d3af4ba2eec.png
@@ -13,6 +29,8 @@ gaurav.jpg: gaurav-886fa17911c0a58c7e45f37551fe576e.jpg
 gaurav/index.jpg: gaurav-886fa17911c0a58c7e45f37551fe576e.jpg
 homepage_background.jpg: homepage_background-215525e005beb9b8fd00ff67c8b4c853.jpg
 homepage_background/index.jpg: homepage_background-215525e005beb9b8fd00ff67c8b4c853.jpg
+homepage_background2.jpg: homepage_background2-215525e005beb9b8fd00ff67c8b4c853.jpg
+homepage_background2/index.jpg: homepage_background2-215525e005beb9b8fd00ff67c8b4c853.jpg
 logo.jpg: logo-8606e958a49243f690b34a1f30104391.jpg
 logo/index.jpg: logo-8606e958a49243f690b34a1f30104391.jpg
 logo.png: logo-4fc9a9784b7bd2242647f2a6eed671ad.png
@@ -37,14 +55,22 @@ parallax-bg11.jpg: parallax-bg11-377917c7c486357193d61d5a64e27fef.jpg
 parallax-bg11/index.jpg: parallax-bg11-377917c7c486357193d61d5a64e27fef.jpg
 parallax-bg2.jpg: parallax-bg2-34e6241bb0163dd30960051c669f7024.jpg
 parallax-bg2/index.jpg: parallax-bg2-34e6241bb0163dd30960051c669f7024.jpg
+parallax-bg3.jpg: parallax-bg3-74f882b267615924b25cc2dff873e586.jpg
+parallax-bg3/index.jpg: parallax-bg3-74f882b267615924b25cc2dff873e586.jpg
+parallax-bg6.jpg: parallax-bg6-e69231b5484f89cbbe87988d866af6f1.jpg
+parallax-bg6/index.jpg: parallax-bg6-e69231b5484f89cbbe87988d866af6f1.jpg
 parallax-bg9.jpg: parallax-bg9-42e7fcc4d7515c18ad670d73a920ca21.jpg
 parallax-bg9/index.jpg: parallax-bg9-42e7fcc4d7515c18ad670d73a920ca21.jpg
 rails.png: rails-71e944d9b39043eba50b77788c0d767f.png
 rails/index.png: rails-71e944d9b39043eba50b77788c0d767f.png
+shutt.jpg: shutt-e016c96af4bd5fdaaeb17628aff171b5.jpg
+shutt/index.jpg: shutt-e016c96af4bd5fdaaeb17628aff171b5.jpg
 veg.png: veg-0491e10cf96ef3ac17173c5161f9ad22.png
 veg/index.png: veg-0491e10cf96ef3ac17173c5161f9ad22.png
 vibhu.jpg: vibhu-0678f524922308894acd6b815eb3ade3.jpg
 vibhu/index.jpg: vibhu-0678f524922308894acd6b815eb3ade3.jpg
+welcome.jpg: welcome-d9834cedad37bfadf329ab057237e10f.jpg
+welcome/index.jpg: welcome-d9834cedad37bfadf329ab057237e10f.jpg
 active_admin.js: active_admin-76080568551d43c2a08a19b4975fa21a.js
 active_admin/index.js: active_admin-76080568551d43c2a08a19b4975fa21a.js
 application.js: application-e868a04d1df97c65bd95a22cde195e98.js
