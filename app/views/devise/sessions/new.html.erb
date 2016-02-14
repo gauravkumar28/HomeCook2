@@ -1,0 +1,16 @@
+<body class="one-page full-screen">
+   <%= javascript_include_tag "application" %>
+   <%= render partial: 'layouts/header.html.erb' %>
+
+<div class='container' style="min-height:540px;">
+  <div class='col-xs-4'>
+  </div>
+   <div class='col-xs-6'>
+   <%= render partial: 'new' %>
+   </div>
+   <div class='col-xs-2'>
+  </div>
+</div>
+
+<%= render partial: 'layouts/footer' %>
+</body>

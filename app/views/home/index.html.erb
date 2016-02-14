@@ -1,6 +1,8 @@
 <body class="one-page full-screen">
    <%= javascript_include_tag "application" %>
    <%= render partial: 'layouts/header.html.erb' %>
+   <div class='container' style="min-height:540px;"> 
+<div class="row">
 <div class='col-xs-12'style="min-height:540px;">
   <div class='col-xs-3 has-above-50'>
     <% unless @user.shipping_address.nil? %>
@@ -67,6 +69,8 @@
       </table>
     <% end %>
   </div>
+</div>
+</div>
 </div>
 <%= render partial: 'layouts/footer' %>
 </body>

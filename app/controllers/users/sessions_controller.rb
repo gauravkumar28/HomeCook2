@@ -14,10 +14,10 @@ before_filter :configure_sign_in_params, only: [:create]
       if resource && resource.active_for_authentication?
         #set_flash_message(:notice, :signed_in) 
         sign_in(resource_name, resource)
-        redirect_to :back
+        redirect_to chefs_path({location: session[:location_id] })
         #render :js => "window.location = '#{session[:return_to]}'" and return
       else
-        
+        render action: 'new'
       end
     else
        self.resource = warden.authenticate!(:scope => resource_name, :recall => "#{controller_path}#failure")

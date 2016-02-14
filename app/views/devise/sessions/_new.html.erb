@@ -1,13 +1,8 @@
-
+<div class="row">
 <div class='col-xs-12'>
-  <div class=''>
-    <div class='signin-header has-below text-center'>
-      <%= link_to 'SignIn', new_session_path(resource_name), remote: true, class: 'btn btn-md btn-primary header'%>
-      <%= link_to 'SignUp', new_registration_path(resource_name), remote: true, class: 'btn btn-md btn-primary header'%>
-    </div>
+  <div class='col-xs-6 offset-3'>
     <hr/>
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name, place_order: @place_order), remote: true) do |f| %>
-      <%= devise_error_messages! %>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name, place_order: @place_order)) do |f| %>
       <div class="form-group">
         <%= f.label :email, class: 'large no-bottom' %><br />
         <%= f.email_field :email, autofocus: true, required: true, class: 'form-control'%>
@@ -31,10 +26,13 @@
       <%= link_to "Forgot your password?", new_password_path(resource_name), class: 'has-above' %><br />
     <% end %>
     </div>
-    <!-- <hr/>
    <div class="form-group text-center">
-    <%= link_to 'Sign in as Guest', new_order_path, class: 'btn btn-md btn-primary'%>
-    </div> -->
+    <%= link_to 'SignUp', new_registration_path(resource_name), class: 'btn  btn-primary btn-lr btn-block large'%>
+    </div>
   </div>
 </div>
+
+</div>
+</div>
+</body>
 

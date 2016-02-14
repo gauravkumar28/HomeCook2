@@ -19,7 +19,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
         # send_sms(@user.phone, code)
         sign_in @user
         #flash[:notice] = 'Signned Up Successfully!'
-        redirect_to :back
+        redirect_to chefs_path({location: session[:location_id] })
         #render :js => "window.location = '#{session[:return_to]}'" and return
       end
     else

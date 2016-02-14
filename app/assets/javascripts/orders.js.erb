@@ -1,9 +1,13 @@
 var Order = {
 	addTocart: function(menu_id){
+
 		$.ajax({
         type: 'POST',
         url: '/addcart',
         data: {'menu_id': menu_id},
+        beforeSend: function(xhr) {
+    xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
+  },
         success: function(data){
         	jQuery("#cart").html(data);
         },
@@ -16,6 +20,9 @@ var Order = {
         type: 'POST',
         url: '/removecart',
         data: {'menu_id': menu_id},
+         beforeSend: function(xhr) {
+    xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
+  },
         success: function(data){
         	jQuery("#cart").html(data);
         },

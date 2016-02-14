@@ -39,9 +39,9 @@ gem "jquery-ui-rails"
 # To use debugger
 # gem 'debugger'
 
-#group :development do
- # gem 'debugger'
-#end
+group :development do
+ gem 'debugger'
+end
 gem 'devise'
 #gem 'devise-otp'
 gem 'activeadmin'
