@@ -4,7 +4,6 @@
     <!-- Parallax Fullscreen -->
     <div id="top-slider" class="parallax-bg1 parallax">
         <div class="overlay"></div>
-
         <header id="header" class="header header-sticky">
             <div class="header-wrap">
                 <div class="container">
@@ -26,17 +25,10 @@
                                     <!-- <li><a href="#menu">Menu</a></li>
                                     <li><a href="#gallery">Gallery</a></li>
                                     <li><a href="#reservation">Reservation</a></li> -->
-                                    <li><a href="#blog">Blog</a></li>
+                                    <!-- <li><a href="#blog">Blog</a></li> -->
                                     <li><a href="#testimonials">Testimonials</a></li>
                                     <li><a href="#contact">Contact</a></li>
-                                    <% unless current_user %>
-          <li><%= link_to "Sign in | Sign up", new_user_session_path, remote: true%></li>
-          <li><%#= link_to "Sign up", new_user_registration_path, id: "sign_up", class: 'signin-signup' %></li>
-        <% end %>
-        <% if current_user %>
-          <li> <%= link_to "#{current_user.name}", home_index_path({id: current_user.id})%></li>
-          <li class="has-left"> <%= link_to "Sign out", destroy_user_session_path, method: :delete%></li>
-        <% end %>
+                                    
                                  </ul><!-- /.menu -->
                             </nav><!-- /.mainnav -->
                         </div><!-- /.span10 -->
@@ -199,113 +191,7 @@
 
        
 
-        <!-- Blog -->
-        <section id="blog" class="roll-row blog-section parallax parallax-bg9">
-            <div class="container">
-                <div class="row">
-                    <div class="content-section">
-                        <div class="span12">
-                            <div class="roll-titlebox">
-                                <h3 class="subtitle">Blog</h3>
-                                <h2 class="maintitle">THE LATEST NEWS FROM THE WORLD OF CUSINE</h2>
-                            </div><!-- /.roll-titlebox -->
-                        </div><!-- /.span12 -->
-                        <div class="span12">
-                            <div class="roll-blog-slider" data-auto="false" data-effect="slide" data-direction="horizotal">
-                                <div class="roll-blog">
-                                    <div class="thumb">
-                                        <img src="images/blog/b1.jpg" alt="image">
-                                        <div class="date"><span>15</span><span>SEP</span></div>
-                                    </div>
-                                    <div class="content">
-                                        <h2><a href="blog.html">Blog Post Article 1</a></h2>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut cursus dictum.</p>
-                                        <a class="more" href="blog.html">READ MORE</a>
-                                    </div>
-                                </div>
-                                <div class="roll-blog">
-                                    <div class="thumb">
-                                        <img src="images/blog/b2.jpg" alt="image">
-                                        <div class="date"><span>11</span><span>SEP</span></div>
-                                    </div>
-                                    <div class="content">
-                                        <h2><a href="blog.html">Blog Post Article 2</a></h2>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut cursus dictum.</p>
-                                        <a class="more" href="blog.html">READ MORE</a>
-                                    </div>
-                                </div>
-                                <div class="roll-blog">
-                                    <div class="thumb">
-                                        <img src="images/blog/b3.jpg" alt="image">
-                                        <div class="date"><span>5</span><span>SEP</span></div>
-                                    </div>
-                                    <div class="content">
-                                        <h2><a href="blog.html">Blog Post Article 3</a></h2>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut cursus dictum.</p>
-                                        <a class="more" href="blog.html">READ MORE</a>
-                                    </div>
-                                </div>
-                                <div class="roll-blog">
-                                    <div class="thumb">
-                                        <img src="images/blog/b4.jpg" alt="image">
-                                        <div class="date"><span>1</span><span>SEP</span></div>
-                                    </div>
-                                    <div class="content">
-                                        <h2><a href="blog.html">Blog Post Article 4</a></h2>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut cursus dictum.</p>
-                                        <a class="more" href="blog.html">READ MORE</a>
-                                    </div>
-                                </div>
-                                <div class="roll-blog">
-                                    <div class="thumb">
-                                        <img src="images/blog/b1.jpg" alt="image">
-                                        <div class="date"><span>15</span><span>SEP</span></div>
-                                    </div>
-                                    <div class="content">
-                                        <h2><a href="blog.html">Blog Post Article 1</a></h2>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut cursus dictum.</p>
-                                        <a class="more" href="blog.html">READ MORE</a>
-                                    </div>
-                                </div>
-                                <div class="roll-blog">
-                                    <div class="thumb">
-                                        <img src="images/blog/b2.jpg" alt="image">
-                                        <div class="date"><span>11</span><span>SEP</span></div>
-                                    </div>
-                                    <div class="content">
-                                        <h2><a href="blog.html">Blog Post Article 2</a></h2>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut cursus dictum.</p>
-                                        <a class="more" href="blog.html">READ MORE</a>
-                                    </div>
-                                </div>
-                                <div class="roll-blog">
-                                    <div class="thumb">
-                                        <img src="images/blog/b3.jpg" alt="image">
-                                        <div class="date"><span>5</span><span>SEP</span></div>
-                                    </div>
-                                    <div class="content">
-                                        <h2><a href="blog.html">Blog Post Article 3</a></h2>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut cursus dictum.</p>
-                                        <a class="more" href="blog.html">READ MORE</a>
-                                    </div>
-                                </div>
-                                <div class="roll-blog">
-                                    <div class="thumb">
-                                        <img src="images/blog/b4.jpg" alt="image">
-                                        <div class="date"><span>1</span><span>SEP</span></div>
-                                    </div>
-                                    <div class="content">
-                                        <h2><a href="blog.html">Blog Post Article 4</a></h2>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut cursus dictum.</p>
-                                        <a class="more" href="blog.html">READ MORE</a>
-                                    </div>
-                                </div>
-                            </div><!-- /.roll-blog-slider -->
-                        </div><!-- /.span12 -->
-                    </div><!-- /.content-section -->
-                </div><!-- /.row -->
-            </div><!-- /.container -->
-        </section>
+      <!--  -->
 
         <!-- Testimonials -->
         <section id="testimonials" class="roll-row testimonials-section parallax parallax-bg10" style="padding-bottom: 90px">
@@ -493,27 +379,39 @@
     </a>
    
     <!-- Javascript -->
-    <!-- <script type="text/javascript" src="javascript/jquery.min.js"></script>
-    // <script type="text/javascript" src="javascript/bootstrap.min.js"></script>
-    // <script type="text/javascript" src="javascript/jquery.easing.js"></script>
-    // <script type="text/javascript" src="javascript/matchMedia.js"></script>
-    // <script type="text/javascript" src="javascript/jquery-waypoints.js"></script>
-    // <script type="text/javascript" src="javascript/jquery.bxslider.js"></script>
-    // <script type="text/javascript" src="javascript/parallax.js"></script>
-    // <script type="text/javascript" src="javascript/imagesloaded.min.js"></script>
-    // <script type="text/javascript" src="javascript/jquery.isotope.min.js"></script>
-    // <script type="text/javascript" src="javascript/jquery.sticky.js"></script>
-    // <script type="text/javascript" src="javascript/jquery.flexslider-min.js"></script>
-    // <script type="text/javascript" src="javascript/owl.carousel.min.js"></script>
-    // <script type="text/javascript" src="javascript/jquery.countdown.js"></script>
+    <%= javascript_include_tag("jquery.min.js") %>
+    <%= javascript_include_tag("bootstrap.min.js") %>
+    <%= javascript_include_tag("jquery.easing.js") %>
+    <%= javascript_include_tag("matchMedia.js") %>
+    <%= javascript_include_tag("jquery-waypoints.js") %>
+    <%= javascript_include_tag("jquery.bxslider.js") %>
+    <%= javascript_include_tag("parallax.js") %>
+    <%= javascript_include_tag("imagesloaded.min.js") %>
+    <%= javascript_include_tag("jquery.isotope.min.js") %>
+    <%= javascript_include_tag("jquery.sticky.js") %>
+    <%= javascript_include_tag("jquery.flexslider-min.js") %>
+    <%= javascript_include_tag("owl.carousel.min.js") %>
+    <%= javascript_include_tag("jquery.countdown.js") %>
+    <%#= javascript_include_tag("query-ui-datepicker.js") %>
+
+     <!-- <script type="text/javascript" src="javascripts/jquery.min.js"></script>
+    // <script type="text/javascript" src="javascripts/bootstrap.min.js"></script>
+    // <script type="text/javascript" src="javascripts/jquery.easing.js"></script>
+    // <script type="text/javascript" src="javascripts/matchMedia.js"></script>
+    // <script type="text/javascript" src="javascripts/jquery-waypoints.js"></script>
+    // <script type="text/javascript" src="javascripts/jquery.bxslider.js"></script>
+    // <script type="text/javascript" src="javascripts/parallax.js"></script>
+    // <script type="text/javascript" src="javascripts/imagesloaded.min.js"></script>
+    // <script type="text/javascript" src="javascripts/jquery.isotope.min.js"></script>
+    // <script type="text/javascript" src="javascripts/jquery.sticky.js"></script>
+    // <script type="text/javascript" src="javascripts/jquery.flexslider-min.js"></script>
+    // <script type="text/javascript" src="javascripts/owl.carousel.min.js"></script>
+    // <script type="text/javascript" src="javascripts/jquery.countdown.js"></script>
 
     // <script type="text/javascript" src="javascript/jquery-ui-datepicker.js"></script> -->
 
-    <script>
-    $(function() {
-    $( "#datepicker" ).datepicker();
-    });
-    </script>
+     
+    
 
 
       
