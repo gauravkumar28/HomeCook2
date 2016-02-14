@@ -20,14 +20,10 @@
                             <div class="btn-menu"></div><!-- //mobile menu button -->
                             <nav id="mainnav" class="">
                                 <ul class="menu">
-                                    <li><a href="www.indiakadabba.com#top">Home</a></li>
-                                    <li><a href="www.indiakadabba.com#about">About</a></li>
-                                    <!-- <li><a href="#menu">Menu</a></li>
-                                    <li><a href="#gallery">Gallery</a></li>
-                                    <li><a href="#reservation">Reservation</a></li> -->
-                                    <!-- <li><a href="#blog">Blog</a></li> -->
-                                    <li><a href="www.indiakadabba.com#testimonials">Testimonials</a></li>
-                                    <li><a href="www.indiakadabba.com#contact">Contact</a></li>
+                                    <li><%= link_to "Home", "#{root_path}#top" %></li>
+                                     <li><%= link_to "About", "#{root_path}#about" %></li>
+                                      <li><%= link_to "Testimonials", "#{root_path}#testimonials" %></li>
+                                       <li><%= link_to "Contact", "#{root_path}#contact" %></li>
                                     <% unless current_user %>
           <li><%= link_to "Sign in | Sign up", new_user_session_path%></li>
           <li><%#= link_to "Sign up", new_user_registration_path, id: "sign_up", class: 'signin-signup' %></li>

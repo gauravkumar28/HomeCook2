@@ -40,6 +40,7 @@ class ChefsController < ApplicationController
   end
 
   def contactus
+    redirect_to :back
   end
 
   def termscondition
