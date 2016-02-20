@@ -139,6 +139,7 @@ GEM
       cocaine (~> 0.5.5)
       mime-types
       mimemagic (= 0.3.0)
+    pg (0.18.3)
     polyamorous (0.5.0)
       activerecord (~> 3.0)
     polyglot (0.3.5)
@@ -223,6 +224,7 @@ DEPENDENCIES
   meta_search (>= 1.1.0.pre)
   mysql2 (~> 0.3)
   paperclip (~> 4.3)
+  pg
   pony (~> 1.11)
   populator
   rails (= 3.2.21)

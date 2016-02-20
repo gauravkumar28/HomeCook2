@@ -12,7 +12,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   #POST /resource
   def create
-    unless params[:api]
       @user = User.new(params[:user])
       if @user.save
         # code = rand(0000..9999).to_s.rjust(4, "0")
@@ -21,20 +20,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
         #flash[:notice] = 'Signned Up Successfully!'
         redirect_to chefs_path({location: session[:location_id] })
         #render :js => "window.location = '#{session[:return_to]}'" and return
-      end
-    else
-      @user = User.new(params[:user])
-      if @user.save
-        # code = rand(0000..9999).to_s.rjust(4, "0")
-        # send_sms(@user.phone, code)
-        sign_in @user
-        #flash[:notice] = 'Signned Up Successfully!'
-        render status: 200, json: @user
-      
       else
-        render status: 404, json: {error: "signup failed"}
+        redirect_to :back
       end
-    end
+
   end
 
   #GET /resource/edit

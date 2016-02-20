@@ -5,9 +5,10 @@ gem 'rails', '3.2.21'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'mysql2', '~> 0.3'
+group :development do
+  gem 'mysql2', '~> 0.3'
 #gem 'activerecord-mysql2-adapter'
-
+end
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -60,10 +61,10 @@ gem 'pony', '~> 1.11'
 gem 'sms_fu'
 gem "paperclip", "~> 4.3"
 
-#group :production do
+group :production do
  # gem 'rails_12factor'
-  #gem 'pg'
-#end
+  gem 'pg'
+end
 
 gem 'acts_as_shopping_cart', :github => 'crowdint/acts_as_shopping_cart', :branch => '0-1-x'
 
