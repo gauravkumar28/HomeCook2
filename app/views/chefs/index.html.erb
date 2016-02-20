@@ -12,15 +12,15 @@
   <div class='span2 thirty-five-mobile-width pull-left'>
     <div class='filter has-above-50'>
       <%= check_box_tag 'veg', "veg", true, :onchange => "Filter.applyCheckbox('', #{session[:location_id]});return false;" %>
-      <%= label_tag "veg only", nil, class: 'header has-left' %></br>
+      <%= label_tag "veg only", nil, class: 'has-left' %></br>
       <%= check_box_tag 'non-veg', "nonveg", true, :onchange => "Filter.applyCheckbox('', #{session[:location_id]});return false;" %>
-      <%= label_tag "non veg only", nil, class: 'header has-left' %>
+      <%= label_tag "non veg only", nil, class: 'has-left' %>
       <div class='list-group'>
-        <%= link_to "All", {:controller => "chefs", :action => "index"}, class: 'header list-group-item special active', :onclick => "Filter.applyType('all', '#all', #{session[:location_id]});return false;", id: 'all' %>
-        <%= link_to "Paratha", {:controller => "chefs", :action => "index", :menu_type => "paratha"}, class: 'header list-group-item special', :onclick => "Filter.applyType('paratha', '#paratha', #{session[:location_id]});return false;", id: 'paratha' %>
-        <%= link_to "Rice", {:controller => "chefs", :action => "index", :menu_type => "rice"}, class: 'header list-group-item special', :onclick => "Filter.applyType('rice', '#rice', #{session[:location_id]});return false;", id: 'rice'%>
-        <%#= link_to "Gravy", {:controller => "chefs", :action => "index", :menu_type => "gravy"}, class: 'header list-group-item special', :onclick => 'Filter.applyType("gravy", "#gravy");return false;', id: 'gravy' %>
-        <%= link_to "Drink", {:controller => "chefs", :action => "index", :menu_type => "drink"}, class: 'header list-group-item special', :onclick => "Filter.applyType('drink', '#drink', #{session[:location_id]});return false;", id: 'drink' %>
+        <%= link_to "All", {:controller => "chefs", :action => "index"}, class: 'list-group-item special active', :onclick => "Filter.applyType('all', '#all', #{session[:location_id]});return false;", id: 'all' %>
+        <%= link_to "Paratha", {:controller => "chefs", :action => "index", :menu_type => "paratha"}, class: 'list-group-item special', :onclick => "Filter.applyType('paratha', '#paratha', #{session[:location_id]});return false;", id: 'paratha' %>
+        <%= link_to "Rice", {:controller => "chefs", :action => "index", :menu_type => "rice"}, class: 'list-group-item special', :onclick => "Filter.applyType('rice', '#rice', #{session[:location_id]});return false;", id: 'rice'%>
+        <%#= link_to "Gravy", {:controller => "chefs", :action => "index", :menu_type => "gravy"}, class: 'list-group-item special', :onclick => 'Filter.applyType("gravy", "#gravy");return false;', id: 'gravy' %>
+        <%= link_to "Drink", {:controller => "chefs", :action => "index", :menu_type => "drink"}, class: 'list-group-item special', :onclick => "Filter.applyType('drink', '#drink', #{session[:location_id]});return false;", id: 'drink' %>
       </div>
     </div>
   </div>
@@ -35,7 +35,7 @@
       <div class='notice fade in'>
         *Free delivery over 100 Rs
       </div>
-      <div class='header'><b>Your order</b></div>
+      <div class=''><b>Your order</b></div>
         <div id="cart">
           <%= render partial: 'table', locals:{show_button: true} %>
         </div>
@@ -45,12 +45,12 @@
         <%= label_tag 'Cooking Instruction' %>
         <%= text_area_tag 'instruction', nil, class: 'form-control', :cols => 10, :rows => 5 %>
         <% if current_user %>
-          <%= submit_tag 'Checkout', class: 'btn btn-md btn-success header has-above'%>
+          <%= submit_tag 'Checkout', class: 'btn btn-md btn-success has-above'%>
         <% else %>
         <!-- <//button class='btn btn-md btn-success header right' onclick="Order.signinAlert();return false;">Checkout</button> -->
-          <%#= link_to "Checkout", '#', :onclick => "Order.signinAlert();return false;", class: 'btn btn-md btn-success header right'%>
+          <%#= link_to "Checkout", '#', :onclick => "Order.signinAlert();return false;", class: 'btn btn-md btn-success right'%>
 
-          <%= submit_tag 'Checkout', :onclick => "Order.signinAlert();return false;", class: 'has-above btn btn-md btn-success header' %>
+          <%= submit_tag 'Checkout', :onclick => "Order.signinAlert();return false;", class: 'has-above btn btn-md btn-success' %>
         <% end %>
         <% end %>
       </div>

@@ -11,8 +11,10 @@
       <td class="large"><%= cart_item.quantity * cart_item.price %></td>
       <% if show_button %>
         <td>
-          <button class='glyphicon glyphicon-minus right js-btn-minus rmvBtn block has-left-5', onclick="Order.subFromcart('<%=cart_item.item.id%>');return false;"></button>
-          <button class='glyphicon glyphicon-plus js-btn-minus rmvBtn right block', onclick="Order.addTocart('<%=cart_item.item.id%>');return false;"> </button>
+		  <i class="right has-left-5 fa fa-minus circle larger red", onclick="Order.subFromcart('<%=cart_item.item.id%>');return false;"></i>
+		  <i class="right fa fa-plus circle larger green", onclick="Order.addTocart('<%=cart_item.item.id%>');return false;"></i>
+          <!-- <button class='glyphicon glyphicon-minus right js-btn-minus rmvBtn block has-left-5', onclick="Order.subFromcart('<%=cart_item.item.id%>');return false;"></button>
+          <button class='glyphicon glyphicon-plus js-btn-minus rmvBtn right block', onclick="Order.addTocart('<%=cart_item.item.id%>');return false;"> </button> -->
         </td>
       <% end %>
     </tr>

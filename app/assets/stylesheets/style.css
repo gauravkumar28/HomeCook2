@@ -590,6 +590,61 @@ input[type="color"],
 	display: none 
 }
 
+.myButton {
+	margin:7px;
+	padding: 15px;
+	height:48px;
+	background-color:transparent;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #fc0a06;
+	display:inline-block;
+	cursor:pointer;
+	color:#fc0a06;
+	font-size:20px;
+	text-decoration:none;
+}
+
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+
+.mylist li{
+	display: inline-block;
+	margin: 10px;
+	height: 50px;
+}
+
+.circle {
+	padding:6px;
+	background-color:transparent;
+	-moz-border-radius:50px;
+	-webkit-border-radius:50px;
+	border-radius:50px;
+	border:2px solid;
+	cursor:pointer;
+}
+.square {
+	padding:4px;
+	background-color:transparent;
+	border:1px solid;
+	-moz-border-radius:2px;
+	-webkit-border-radius:2px;
+	border-radius:2px;
+}
+.red {
+	border-color:#d40000;
+	color:#d40000;
+}
+.green {
+	border-color:#008000;
+	color:#008000;
+}
+
+
+
 /* Parallax
 -------------------------------------------------------------- */
 .parallax {

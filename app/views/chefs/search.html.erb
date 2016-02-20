@@ -9,25 +9,36 @@
                     <div class="row">
                         <div class="span2">
                             <div id="logo" class="logo">
-                                <!-- <a href="index.html" rel="home">
-                                    <img src="logo.jpg" alt="ZupaRestaurant" />
+                                <!--<a href="index.html" rel="home">
+                                    <img src="/app/assets/images/logo.png" height="80" width="160" alt="ZupaRestaurant" />
                                 </a> -->
-                                <%= link_to image_tag("logo.png"), root_path, class: "navbar-brand"%>
+                                <%= link_to image_tag("logo_web3.png"), root_path, class: "logostyle"%>
                             </div><!-- /.logo -->
                         </div>
                         <div class="span10">
                             <div class="btn-menu"></div><!-- //mobile menu button -->
                             <nav id="mainnav" class="mainnav">
                                 <ul class="menu">
-                                    <li><a class="active" href="#top">Home</a></li>
+                                    <!--<li><a class="active" href="#top">Home</a></li>
                                     <li><a href="#about">About</a></li>
-                                    <!-- <li><a href="#menu">Menu</a></li>
+                                    <li><a href="#menu">Menu</a></li>
                                     <li><a href="#gallery">Gallery</a></li>
-                                    <li><a href="#reservation">Reservation</a></li> -->
-                                    <!-- <li><a href="#blog">Blog</a></li> -->
+                                    <li><a href="#reservation">Reservation</a></li> 
+                                    <li><a href="#blog">Blog</a></li>
                                     <li><a href="#testimonials">Testimonials</a></li>
-                                    <li><a href="#contact">Contact</a></li>
-                                    
+                                    <li><a href="#contact">Contact</a></li>-->
+								   
+                                    <li><%= link_to image_tag("play_logo.png", :size => "150x55"), "https://play.google.com/store/apps/details?id=com.meet.dabba&hl=en"%></li>
+									
+									<% unless current_user %>
+          <li><div class="myButton"><%= link_to "LOG IN", new_user_session_path%></div></li>
+          <li><%#= link_to "Sign up", new_user_registration_path, id: "sign_up", class: 'signin-signup' %></li>
+        <% end %>
+        <% if current_user %>
+          <li> <button class="myButton"><%= link_to "#{current_user.name}", home_index_path({id: current_user.id})%></button></li>
+          <li class="has-left"> <button class="myButton"><%= link_to "Sign out", destroy_user_session_path, method: :delete%></button></li>
+        <% end %>
+		
                                  </ul><!-- /.menu -->
                             </nav><!-- /.mainnav -->
                         </div><!-- /.span10 -->
@@ -42,10 +53,10 @@
                 <ul class="slides">
                     <li class="flex-active-slide" style="width: 100%; float: left; margin-right: -100%; position: relative; opacity: 1; display: block; z-index: 2;">
                         <div class="content-slider">
-                            <h2 class="FromLeft captionDelay2">Welcome to the <b><span class="color">IndiaKaDabba</span></b></h2>
+                            <h2 class="FromLeft captionDelay2">Tasty. Homely. Affordable.</h2>
 
                             <div class="divider FromLeft captionDelay5"></div>
-                            <p class="FromLeft captionDelay8"><b>Amazing</b> and <b>delicious</b> dishes only with us!</p>
+                            <p class="FromLeft captionDelay8">Experience our express checkout with the best dishes in hand!</p>
                             <%= form_tag chefs_path, :method => 'get', id: 'search_form' do %>
           <!-- <div class="form-group">
             <%= label_tag "Pune", nil, class: "btn btn-primary btn-lg form-control"%>
@@ -96,7 +107,7 @@
                     </li>
 
                 </ul>
-            <ol class="flex-control-nav flex-control-paging"><li><a class="flex-active">1</a></li><li><a class="">2</a></li><li><a class="">3</a></li></ol></div>
+            <!-- <ol class="flex-control-nav flex-control-paging"><li><a class="flex-active">1</a></li><li><a class="">2</a></li><li><a class="">3</a></li></ol>--></div> 
         </div>
         
         
@@ -107,10 +118,9 @@
                 <div class="row">
                     <div class="span12">
                         <div class="contact-slider-inner">
-                            <span class="serve">Today is served from 9 am to 9 pm</span>
-
-                            <span class="phone">Call us and find out more +919819537603</span>
-                            <span class="address">Pune Near Power House, Rasta Peth Swargate-411037</span>
+                            <!-- <span class="serve">Today is served from 9 am to 9 pm</span>
+                            <span class="phone">Call us and find out more +919819537603</span> -->
+                            <span class="larger"><center>Viman Nagar • Yerwada • Kalyani Nagar • Vishrantwadi • Commerzone </center></span>
                         </div>
                     </div><!-- /.span12 -->
                 </div><!-- /.row -->
@@ -140,13 +150,13 @@
                     </div><!-- /.span12 -->
                     <div class="span6">
 
-                        <div style="margin-top: 10px; ">
+                        <div style="margin-top: 10px; margin-bottom: 30px;">
                             <%= link_to image_tag("Veg_Biryani1.jpg"), root_path%>
                         </div>
                     </div><!-- /.span6 -->
                     <div class="span6">
                         <p class="text-justify" style="padding-top:10px;">
-                        India Ka Dabba is a restaurant in cloud which offer palatable and affordable multi-cuisine food made by expert chefs. Pre-book your meals to get them delivered at your preferred time slot. Free home delivery exclusively at indiakadabba.com
+                        India Ka Dabba is a restaurant in cloud which offer palatable and affordable multi-cuisine food made by expert chefs. Pre-book your meals to get them delivered at your preferred time slot. Free home delivery exclusively at <c style="color: blue;">indiakadabba.com</c>
                         Most of us compromise and end up eating unhealthy and, at times to our own horror unhygienic food. We at India Ka Dabba offer you tasty food made from fresh vegetables and the best spices. Our chefs have impressive culinary skills and experience which reflect in the food being served. Currently, India Ka Dabba is active in areas around College of engineering and Viman Nagar Pune.
                         Setup your own ambiance and leave the food to us.
                         </p>
@@ -200,7 +210,7 @@
                     <div class="content-section">
                         <div class="span12">
                             <div class="roll-titlebox">
-                                <h3 class="subtitle">Testimonials</h3>
+                                <h2 class="subtitle">Testimonials</h2>
                                 <h2 class="maintitle text-white">WHAT OUR CUSTOMERS SAY</h2>
                             </div><!-- /.roll-titlebox -->
                         </div><!-- /.span12 -->
@@ -245,15 +255,14 @@
                         <div class="span12">
                             <div class="roll-titlebox">
                                 <h3 class="subtitle">Contact</h3>
-                                <h2 class="maintitle">CONTACT WITH US</h2>
+                                <h2 class="maintitle">GOT SOMETHING TO SAY TO OUR TEAM? <br/> WANT TO KNOW MORE ABOUT US? <br/> WE ARE EAGER TO HEAR FROM YOU!</h2>
                             </div><!-- /.roll-titlebox -->
                         </div><!-- /.span12 -->
                         <div class="span4 offset2">
 
                             <ul class="roll-infomation">
                                 <li class="address">
-                                    Pune Near Power House,<br> Rasta Peth
-                                    Swargate-411037
+                                    Pune <br> H19/2892 Maharashtra <br> Housing Board, Yerwada-411006
                                 </li>
                                 <li class="address">
                                     Navi Mumbai<br>
@@ -262,43 +271,11 @@
                                     New Panvel-410206
                                 </li>
                                 <li class="phone">+91 9819537603</li>
-                                <li class="email">contact@indiakadabba.com
+                                <li class="email">uday.indiakadabba@gmail.com
                                 </li>
 
-                                <li class="time"><span>Mon - Thur:</span> 8:00 am - 9:00 pm<br><span>Fri - Sat:</span> 10:00 am - 1:00 am<br><span>Sun:</span> 11:00 am - 10:00 pm</li>
                             </ul>
-                            <ul class="roll-socials">
-                                <li>
-                                    <a href="#" target="_blank" title="Facebook'">
-                                        <i class="fa fa-facebook"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" target="_blank" title="Twitter">
-                                        <i class="fa fa-twitter"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" target="_blank" title="Tumblr">
-                                        <i class="fa fa-tumblr"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" target="_blank" title="Pinterest">
-                                        <i class="fa fa-pinterest"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" target="_blank" title="linkedin">
-                                        <i class="fa fa-linkedin"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" target="_blank" title="google-plus">
-                                        <i class="fa fa-google-plus"></i>
-                                    </a>
-                                </li>
-                            </ul>
+                          
                         </div><!-- /.span6 -->
                         <div class="span4">
                             <form id="contact-form" class="contact-form" method="post" action="/contactus">
@@ -325,8 +302,8 @@
             </div><!-- /.container -->
         </section>
 
-        <div id="map" style="width: 100%; height: 250px">
-        </div><!-- /map -->
+        <!-- <div id="map" style="width: 100%; height: 250px">
+        </div> --> <!-- /map -->
         <footer class="footer simple">
             <div class="container">
                 <div class="row">
@@ -346,11 +323,12 @@
           <div class="container">
                 <div class="row">
                   <div class="span12">
-                    <ul class="roll-socials">
+                    <ul class="mylist">
                             <li>
-                              <a href="#" target="_blank" title="Facebook'"><i class="fa fa-facebook"></i></a>
+							 <%= link_to image_tag("facebook.png", :title => "Facebook"), "https://www.facebook.com/IndiaKaDabba/?ref=aymt_homepage_panel"%>
+                              <!-- <a href="https://www.facebook.com/IndiaKaDabba/?ref=aymt_homepage_panel" target="_blank" title="Facebook"><i class="fa fa-facebook"></i></a> -->
                             </li>
-                            <li>
+                            <!-- <li>
                                 <a href="#" target="_blank" title="Twitter"><i class="fa fa-twitter"></i></a>
                             </li>
                             <li>
@@ -361,9 +339,13 @@
                             </li>
                             <li>
                                 <a href="#" target="_blank" title="linkedin"><i class="fa fa-linkedin"></i></a>
+                            </li> -->
+                            <li>
+							   <%= link_to image_tag("google.png", :title => "Google+"), "https://plus.google.com/u/0/109685967691077967861"%>
+                                <!-- <a href="https://plus.google.com/u/0/109685967691077967861" target="_blank" title="Google+"><i class="fa fa-google-plus"></i></a> -->
                             </li>
                             <li>
-                                <a href="#" target="_blank" title="google-plus"><i class="fa fa-google-plus"></i></a>
+                                <%= link_to image_tag("zomato.png", :title => "Zomato"), "https://www.zomato.com/pune/india-ka-dabba-yerawada#"%>
                             </li>
                         </ul>
                   </div><!-- /.span12 -->
