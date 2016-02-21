@@ -128,7 +128,8 @@ class OrdersController < ApplicationController
   end
 
   def get_coupan
-    @coupan = Coupan.find_by_code(params["coupon_code"])
+    Rails.logger.info "/GET /coupon with params #{params.inspect}"
+    @coupan = Coupan.where(code: params["coupon_code"]).first
     if @coupan
       discount = @coupan.discount if @coupan.discount_type == 'absolute'
       discount = ((@cart.total  *  @coupan.discount)/100).to_i if @coupan.discount_type == 'percent'
