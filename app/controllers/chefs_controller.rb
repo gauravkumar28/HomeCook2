@@ -11,6 +11,9 @@ class ChefsController < ApplicationController
     params[:veg] ||= "true"
     params[:nonveg] ||= "true"
     params[:menu_type] ||="all"
+
+
+    Rails.logger.info "/GET  index with params #{params}"
     redirect_to root_path if @location.nil?
    @menus = if params[:veg] == "true" and params[:nonveg] == "true"
               Menu.all
