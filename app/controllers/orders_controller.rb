@@ -128,13 +128,13 @@ class OrdersController < ApplicationController
   end
 
   def get_coupan
-    @coupan = Coupan.find_by_code(params[:coupon_code])
+    @coupan = Coupan.find_by_code(params["coupon_code"])
     if @coupan
       discount = @coupan.discount if @coupan.discount_type == 'absolute'
       discount = ((@cart.total  *  @coupan.discount)/100).to_i if @coupan.discount_type == 'percent'
       @coupan.applied += 1
       render status: 200, json: discount
-    else @coupan
+    else 
       render status: 200, json: 0
     end
   end
