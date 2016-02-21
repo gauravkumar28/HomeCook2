@@ -30,14 +30,7 @@
 								   
                                     <li><%= link_to image_tag("play_logo.png", :size => "150x55"), "https://play.google.com/store/apps/details?id=com.meet.dabba&hl=en"%></li>
 									
-									<% unless current_user %>
-          <li><div class="myButton"><%= link_to "LOG IN", new_user_session_path%></div></li>
-          <li><%#= link_to "Sign up", new_user_registration_path, id: "sign_up", class: 'signin-signup' %></li>
-        <% end %>
-        <% if current_user %>
-          <li> <button class="myButton"><%= link_to "#{current_user.name}", home_index_path({id: current_user.id})%></button></li>
-          <li class="has-left"> <button class="myButton"><%= link_to "Sign out", destroy_user_session_path, method: :delete%></button></li>
-        <% end %>
+									
 		
                                  </ul><!-- /.menu -->
                             </nav><!-- /.mainnav -->
