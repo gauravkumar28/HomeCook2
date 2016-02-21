@@ -134,9 +134,9 @@ class OrdersController < ApplicationController
       discount = @coupan.discount if @coupan.discount_type == 'absolute'
       discount = ((params["total"].to_i  *  @coupan.discount)/100).to_i if @coupan.discount_type == 'percent'
       @coupan.applied += 1
-      render status: 200, json: discount
+      render status: 200, json: {discount: discount}
     else 
-      render status: 200, json: 0
+      render status: 200, json: {discount: 0}
     end
   end
 
