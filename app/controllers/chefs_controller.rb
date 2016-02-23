@@ -44,10 +44,11 @@ class ChefsController < ApplicationController
   end
 
   def aboutus
+    redirect_to root_path(:anchor => "about")
   end
 
   def contactus
-    redirect_to :back
+    redirect_to root_path(:anchor => "contact")
   end
 
   def termscondition
