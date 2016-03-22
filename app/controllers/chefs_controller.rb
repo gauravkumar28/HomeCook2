@@ -16,17 +16,14 @@ class ChefsController < ApplicationController
     Rails.logger.info "/GET  index with params #{params}"
     redirect_to root_path if @location.nil?
    @menus = if params[:veg] == "true" and params[:nonveg] == "true"
-              Menu.all
+              Menu.where(location_id: @location.id)
             elsif params[:veg] == "true"
-              Menu.where(category: 'veg') 
+              Menu.where(location_id: @location.id, category: 'veg') 
             elsif params[:nonveg] =="true"
-              Menu.where(category: 'non-veg') 
+              Menu.where(location_id: @location.id, category: 'non-veg') 
             else 
               []
             end
-    
-    @menus = @menus.select{|menu| menu.location_id.present?} if @location.id >= 14
-    @menus = @menus.reject{|menu| menu.location_id.present?} if @location.id < 14
     @menus = @menus.select{|menu| menu.menu_type == params[:menu_type]} unless params[:menu_type] == 'all'
 
     respond_to do |format|
