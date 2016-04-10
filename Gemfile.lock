@@ -60,7 +60,7 @@ GEM
     bourbon (3.2.4)
       sass (~> 3.2)
       thor
-    browser (2.0.3)
+    browser (1.1.0)
     builder (3.0.4)
     climate_control (0.0.3)
       activesupport (>= 3.0)
@@ -207,7 +207,7 @@ DEPENDENCIES
   activeadmin
   acts_as_shopping_cart!
   bootstrap-sass
-  browser
+  browser (~> 1)
   coffee-rails (~> 3.2.1)
   devise
   faker
@@ -218,6 +218,7 @@ DEPENDENCIES
   meta_search (>= 1.1.0.pre)
   mysql2 (~> 0.3)
   paperclip (~> 4.3)
+  pg
   pony (~> 1.11)
   populator
   rails (= 3.2.21)
@@ -229,6 +230,3 @@ DEPENDENCIES
   twilio-ruby (~> 4.2.1)
   uglifier (>= 1.0.3)
   validates_phone_number (~> 2.0, >= 2.0.1)
-
-BUNDLED WITH
-   1.10.6
