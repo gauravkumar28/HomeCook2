@@ -63,7 +63,7 @@ gem "paperclip", "~> 4.3"
 
 group :production do
  # gem 'rails_12factor'
-  gem 'pg'
+  #gem 'pg'
 end
 
 gem 'acts_as_shopping_cart', :github => 'crowdint/acts_as_shopping_cart', :branch => '0-1-x'
