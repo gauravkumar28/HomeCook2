@@ -83,11 +83,11 @@ class ChefsController < ApplicationController
     params['menu_type'] ||="all"
 
    @menus = if params['veg'] == "true" and params['nonveg'] == "true"
-              Menu.all
+              Menu.where(location_id: @location.id)
             elsif params['veg'] == "true"
-              Menu.where(category: 'veg') 
+              Menu.where(location_id: @location.id, category: 'veg')  
             elsif params['nonveg'] =="true"
-              Menu.where(category: 'non-veg') 
+              Menu.where(location_id: @location.id, category: 'non-veg')  
             else 
               []
             end
