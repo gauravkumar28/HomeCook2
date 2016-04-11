@@ -51,9 +51,15 @@
                             <div class="divider FromLeft captionDelay5"></div>
 
                             <% if browser.device.mobile? %>
-
-                            lfgfdskjgk
+                              <h3> Call Us or Download Our App</h3>
+                            <ul>
+                            <li>
              <%= link_to image_tag("play_logo.png", :size => "150x55"), "https://play.google.com/store/apps/details?id=com.meet.dabba&hl=en"%>
+             </li>
+             <li>
+             <a href="tel:5551234567">1-847-555-5555</a>
+             </li>
+             </ul>
            <% else %>
                             <p class="FromLeft captionDelay8">Experience our express checkout with the best dishes in hand!</p>
                             <%= form_tag chefs_path, :method => 'get', id: 'search_form' do %>
