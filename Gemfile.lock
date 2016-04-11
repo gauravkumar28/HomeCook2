@@ -207,7 +207,7 @@ DEPENDENCIES
   activeadmin
   acts_as_shopping_cart!
   bootstrap-sass
-  browser (~> 1)
+  browser (~> 2)
   coffee-rails (~> 3.2.1)
   devise
   faker
