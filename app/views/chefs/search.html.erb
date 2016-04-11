@@ -51,17 +51,15 @@
                             <div class="divider FromLeft captionDelay5"></div>
 
                             <% if browser.device.mobile? %>
-                              <h4 class="subtitle" style="opacity: 1">Call Us or Download Our App</h4>
-                            <ul class="slides">
-                    
-            <li class="flex-active-slide" style="width: 100%; float: left; position: relative; opacity: 1; display: block; z-index: 2;">
+                              <h4 class="subtitle text-white" style="opacity: 1">Call Us or Download Our App</h4>
+            
+            <span class="flex-active-slide" style="float: left; position: relative; opacity: 1; display: block; z-index: 2; margin-left: 10px;">
              <a href="tel:9819537603"><%= image_tag("callus.png", :size => "150x55") %></a>
-             </li>
-                    <li class="flex-active-slide" style="width: 100%; float: right; position: relative; opacity: 1; display: block; z-index: 2;">
+             </span>
+                    <span class="flex-active-slide" style="float: right; position: relative; opacity: 1; display: block; z-index: 2; margin-right: 10px;">
              <%= link_to image_tag("play_logo.png", :size => "150x55"), "https://play.google.com/store/apps/details?id=com.meet.dabba&hl=en"%>
-             </li>
-             
-             </ul>
+             </span>
+
            <% else %>
                             <p class="FromLeft captionDelay8">Experience our express checkout with the best dishes in hand!</p>
                             <%= form_tag chefs_path, :method => 'get', id: 'search_form' do %>
