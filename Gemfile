@@ -41,7 +41,7 @@ gem "jquery-ui-rails"
 # gem 'debugger'
 
 group :development do
- gem 'debugger'
+ #gem 'debugger'
 end
 gem 'devise'
 #gem 'devise-otp'
@@ -72,3 +72,4 @@ gem 'sweet-alert'
 gem 'jquery-validation-rails'
 gem 'tod'
 gem 'validates_phone_number', '~> 2.0', '>= 2.0.1' 		
+gem 'browser'

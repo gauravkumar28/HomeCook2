@@ -60,6 +60,7 @@ GEM
     bourbon (3.2.4)
       sass (~> 3.2)
       thor
+    browser (2.0.3)
     builder (3.0.4)
     climate_control (0.0.3)
       activesupport (>= 3.0)
@@ -72,13 +73,6 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.9.1.1)
-    columnize (0.9.0)
-    debugger (1.6.8)
-      columnize (>= 0.3.1)
-      debugger-linecache (~> 1.2.0)
-      debugger-ruby_core_source (~> 1.3.5)
-    debugger-linecache (1.2.0)
-    debugger-ruby_core_source (1.3.8)
     devise (3.5.2)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -139,7 +133,6 @@ GEM
       cocaine (~> 0.5.5)
       mime-types
       mimemagic (= 0.3.0)
-    pg (0.18.3)
     polyamorous (0.5.0)
       activerecord (~> 3.0)
     polyglot (0.3.5)
@@ -213,8 +206,8 @@ DEPENDENCIES
   activeadmin
   acts_as_shopping_cart!
   bootstrap-sass
+  browser
   coffee-rails (~> 3.2.1)
-  debugger
   devise
   faker
   geokit-rails
@@ -224,7 +217,6 @@ DEPENDENCIES
   meta_search (>= 1.1.0.pre)
   mysql2 (~> 0.3)
   paperclip (~> 4.3)
-  pg
   pony (~> 1.11)
   populator
   rails (= 3.2.21)
@@ -236,3 +228,6 @@ DEPENDENCIES
   twilio-ruby (~> 4.2.1)
   uglifier (>= 1.0.3)
   validates_phone_number (~> 2.0, >= 2.0.1)
+
+BUNDLED WITH
+   1.10.6
